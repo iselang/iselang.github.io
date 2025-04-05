@@ -601,7 +601,7 @@ a(`ui/${e}.css`);
 });
 };
 
-AutoUI();load('ui/l.css');
+AutoUI();load('ui/l.css');load('https://iselang.github.io/ui/l.css');
 AutoUI&&(window.AutoUI=AutoUI);
 })();
 
