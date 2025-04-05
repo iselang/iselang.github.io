@@ -234,13 +234,13 @@ bit.set = (address=0, value) => {
 const hexAddress = `0x${_2h(address)}`;
 const hexValue = _2h(JSON.stringify(value||''));
 _hex = hexValue;
-address=='SXD'?localStorage.clear():localStorage.setItem(hexAddress, hexValue);
-value?console.log(`Memory Set ${hexAddress}`):console.log(`Memory Reset ${hexAddress}`);
+address=='SXD'?localStorage.setItem(hexAddress,''):localStorage.setItem(hexAddress, hexValue);
+value?console.log(`[WRITE] @ ${hexAddress} ("${address}")`):console.log(`[WIPE] @ ${hexAddress} ("${address}")`);
 
 };
 bit.get = (address) => {
 const hexAddress = `0x${_2h(address)}`;
-console.log(`Memory Get ${hexAddress}`);
+console.log(`[READ] @ ${hexAddress} ("${address}")`);
 const hexData = localStorage.getItem(hexAddress);
 if (hexData === null) {
 return null;
