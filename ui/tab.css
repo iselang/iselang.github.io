@@ -1,0 +1,18 @@
+tabs {
+display: flex;
+overflow-x: auto;
+width: auto ;
+scroll-snap-type: x mandatory;
+padding:2.5px;
+}
+
+tab {
+flex-shrink: 0;
+width: 120px;
+height: 60px;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+scroll-snap-align: center; 
+}

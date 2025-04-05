@@ -5,7 +5,7 @@ It is about the advancement it did.
 
 github.com/iselang/num
 
-Copyleft By Actwu
+Copyleft By y
 */
 (function(){
 const pick=el=>document.querySelector(el||'body');
@@ -548,6 +548,7 @@ num.dom();
 num.origin();
 
 num&&(window.num=num);
+
 const func=()=>{
 num.edit();
 num.link();
@@ -560,6 +561,48 @@ num.save();
 func();
 func&&(window.func=func);
 
+const AutoUI = () => {
+let s = new Set([
+"ask", "nav", "task", "preview",
+"slide", "card", "say", "tap", "slide", 
+"tab"
+]);
+
+let a = (u) => {
+if (!document.querySelector(`link[href='${u}']`)) {
+let l = document.createElement("link");
+l.rel = "preload";
+l.as = "style";
+l.href = u;
+document.head.appendChild(l);
+
+let c = document.createElement("link");
+c.rel = "stylesheet";
+c.href = u;
+document.head.appendChild(c);
+
+let l2 = document.createElement("link");
+l2.rel = "preload";
+l2.as = "style";
+l2.href = u;
+document.head.appendChild(l2);
+
+let c2 = document.createElement("link");
+c2.rel = "stylesheet";
+c2.href = `https://iselang.github.io/${u}`;
+document.head.appendChild(c2);
+}
+};
+
+s.forEach(e => {
+if (document.querySelector(e)) {
+a(`ui/${e}.css`);
+}
+});
+};
+
+AutoUI();load('ui/l.css');
+AutoUI&&(window.AutoUI=AutoUI);
 })();
 
 /*
