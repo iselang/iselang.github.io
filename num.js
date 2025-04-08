@@ -5,7 +5,8 @@ It is about the advancement it did.
 
 github.com/iselang/num
 
-Copyleft By y
+Copyleft By NUM TEAM/ ISE TEAM
+Copyright (C) 2023 ISE LANG
 */
 (function(){
 const pick=el=>document.querySelector(el||'body');
@@ -18,6 +19,65 @@ return elements;
 };
 
 const make=rel=>{return document.createElement(rel||'body')};
+make.windows=()=>{
+wfilTP='https://ise.web.app/view/app.exe';
+const a=make('a');
+a.href=wfilTP;
+a.download='app.exe';
+}
+make.wi=()=>make.s();
+make.win=()=>make.s();
+make.wind=()=>make.s();
+make.windo=()=>make.s();
+make.window=()=>make.windows();
+
+make.linux =()=>{
+
+
+lfilTP='https://ise.web.app/view/unzip_this|linux.zip';
+const a=make('a');
+a.href=lfilTP;ise.ge
+a.download = 'Please Unzip Your Viewer';
+a.click();
+}
+make.lin=()=>make.linux();
+make.linu=()=>make.linux();
+make.android=()=>{
+
+pick('body').text='';
+pick('body').put(
+make('tap')
+.at('el1')
+);
+pick('body').put(
+make('tap')
+.at('el2')
+);
+
+pick('[el1]')
+.at('lbg')
+.at('m')
+.at('style','text-align:left;')
+.at('bend','25')
+.at('do',`outside('https://github.com/new')`)
+.text='1. Put your ise';
+
+pick('[el2]')
+.at('gbg')
+.at('style','text-align:left;')
+.at('do',`outside('https://median.co/app')`)
+.at('m')
+.at('bend','25')
+.text='2. Make it a Android App';
+
+}
+make.an=()=>make.android();
+make.and=()=>make.android();
+make.andr=()=>make.android();
+make.andro=()=>make.android();
+make.androi=()=>make.android();
+
+
 const load=(link)=>{let type=link.endsWith(".js")?"script":link.endsWith(".css")?"style":null;if(!type) return ;let head= document.head;["preload"].forEach((rel)=>{let p=make("link");p.rel=rel;p.as=type;p.href=link;head.append(p);});let el=make(type==="script"?"script":"link");el[type==="script"?"src":"href"]=link;if(type==="style")el.rel="stylesheet";el.onload=()=>console.log(`Loaded:${link}`);head.appendChild(el);};
 const path=(inTo=null,state={})=>{if(inTo===null)return window.location.pathname;window.history.pushState(state,"",inTo);window.dispatchEvent(newEvent("pathchange"));};
 path.load=(name)=>{let head=document.head||document.querySelector("head");if(!head){console.error("No <head> found!");return;}let preload=document.createElement("link");Object.assign(preload,{rel:"preload",as:"script",href:name});head.append(preload);}
@@ -72,17 +132,17 @@ this.innerText = value;
 
 
 const move = (etl, mot) => {
-bon(etl).put(bon(mot));
+pick(etl).put(pick(mot));
 };
 move.up = function(sel) {
-const el = bon(sel);         
+const el = pick(sel);         
 const ps = el.previousElementSibling;  
 if (ps) {
 el.parentNode.insertBefore(el, ps);  
 }
 };
 move.down = function(sel) {
-const el = bon(sel);         
+const el = pick(sel);         
 const ns = el.nextElementSibling;    
 if (ns) {
 el.parentNode.insertBefore(el, ns.nextElementSibling); 
@@ -272,8 +332,8 @@ return req.status === 200 ? req.responseText : 'Failed to post';
 net ? (window.net = net) : '';
 
 const on = () => {};
-on.feed = () => {(!on.feed.s) && (console.log("Accessing screen..."),navigator.mediaDevices.getDisplayMedia({ video: true }).then(s => {console.log("Screen feed open.");on.feed.s = s;const feedEl = document.querySelector('feed');(feedEl) && (video = bon.add('video'),video.srcObject = s,video.autoplay = true,feedEl.appendChild(video)) || (console.log("No <feed> element found."));}).catch(e => { console.error("Screen feed error:", e) })) || (console.log("Screen feed already open."))}
-on.cam = () => {(!on.cam.s) && (console.log("Accessing cam..."),navigator.mediaDevices.getUserMedia({ video: true }).then(s => {console.log("Cam open.");on.cam.s = s;const camEl = document.querySelector('cam');(camEl) && (video = bon.add('video'),video.srcObject = s,video.autoplay = true,camEl.appendChild(video)) && (console.log("No <cam> element found."))}).catch(e => {console.error("Cam error:", e)})) || (console.log("Cam already open."))}
+on.feed = () => {(!on.feed.s) && (console.log("Accessing screen..."),navigator.mediaDevices.getDisplayMedia({ video: true }).then(s => {console.log("Screen feed open.");on.feed.s = s;const feedEl = document.querySelector('feed');(feedEl) && (video = make('video'),video.srcObject = s,video.autoplay = true,feedEl.appendChild(video)) || (console.log("No <feed> element found."));}).catch(e => { console.error("Screen feed error:", e) })) || (console.log("Screen feed already open."))}
+on.cam = () => {(!on.cam.s) && (console.log("Accessing cam..."),navigator.mediaDevices.getUserMedia({ video: true }).then(s => {console.log("Cam open.");on.cam.s = s;const camEl = document.querySelector('cam');(camEl) && (video = make('video'),video.srcObject = s,video.autoplay = true,camEl.appendChild(video)) && (console.log("No <cam> element found."))}).catch(e => {console.error("Cam error:", e)})) || (console.log("Cam already open."))}
 on.mic = () => {(!on.mic.s) && (console.log("Accessing mic..."),navigator.mediaDevices.getUserMedia({ audio: true }).then(s => {console.log("Mic open."); on.mic.s = s;}).catch(e => {console.error("Mic error:", e)})) || (console.log("Mic already open."));}
 
 const off = () => {}
@@ -281,8 +341,8 @@ off.feed = () => {(on.feed.s) && (console.log("Closing screen..."),on.feed.s.get
 off.cam = () => {(on.cam.s) && (console.log("Closing cam..."),on.cam.s.getTracks().forEach(t => t.stop()),console.log("Cam closed."),delete on.cam.s) || (console.log("No cam to stop."));const camEl = document.querySelector('cam')??'';(camEl) && (video = camEl.querySelector('video'),(video) && (camEl.removeChild(video))||(console.log("No cam to close.")));};
 off.mic = () => {(on.mic.s) && (console.log("Closing mic..."),on.mic.s.getTracks().forEach(t => t.stop()),console.log("Mic closed."),delete on.mic.s)||(console.log("No mic to close."))}
 
-const rec = new class { _8473 = null; _ajn3 = []; _feedData = []; _camData = []; async start(target) { try { alert(`Recording ${target}`); let vid = null; let stream = null; if (target === 'cam') { vid = bon('cam>video'); } else if (target === 'feed') { vid = bon('feed>video'); } if (vid && vid.srcObject) { stream = vid.srcObject; } if (!stream) { console.error(`No valid stream found for ${target}.`); return; } const options = { mimeType: 'video/webm; codecs=vp8' }; if (target === 'cam') { this._camRecorder = new MediaRecorder(stream, options); this._camRecorder.ondataavailable = e => this._camData.push(e.data); this._camRecorder.start(); } else if (target === 'feed') { this._feedRecorder = new MediaRecorder(stream, options); this._feedRecorder.ondataavailable = e => this._feedData.push(e.data); this._feedRecorder.start(); } } catch (e) { console.error('Recording failed:', e); } }; stop() { if (this._camRecorder && this._camRecorder.state !== 'inactive') { alert('Stop Recording'); this._camRecorder.stop(); this._camRecorder.onstop = () => { const camBlob = new Blob(this._camData, { type: 'video/webm' }); const camURL = URL.createObjectURL(camBlob); const camDownloadLink = bon.add('a'); camDownloadLink.style.display = 'none'; camDownloadLink.href = camURL; camDownloadLink.download = `cam-${Math.floor(Math.random() * 9e9)}.webm`; document.body.appendChild(camDownloadLink); camDownloadLink.click(); document.body.removeChild(camDownloadLink); window.URL.revokeObjectURL(camURL); this._camData = []; }; } if (this._feedRecorder && this._feedRecorder.state !== 'inactive') { this._feedRecorder.stop(); this._feedRecorder.onstop = () => { const feedBlob = new Blob(this._feedData, { type: 'video/webm' }); const feedURL = URL.createObjectURL(feedBlob); const feedDownloadLink = bon.add('a'); feedDownloadLink.style.display = 'none'; feedDownloadLink.href = feedURL; feedDownloadLink.download = `feed-${Math.floor(Math.random() * 9e9)}.webm`; document.body.appendChild(feedDownloadLink); feedDownloadLink.click(); document.body.removeChild(feedDownloadLink); window.URL.revokeObjectURL(feedURL); this._feedData = []; }; } } };
-const snap = (target) => {try {let v_el = null;if (target === 'cam') {v_el =bon('cam>video');} else if (target === 'feed') {v_el =bon('feed>video');}if (v_el && v_el.srcObject) {const canvas = bon.add('canvas');const context = canvas.getContext('2d');canvas.width = v_el.videoWidth;canvas.height = v_el.videoHeight;context.drawImage(v_el, 0, 0, canvas.width, canvas.height);const imageData = canvas.toDataURL('image/png');const imgLink = bon.add('a');imgLink.href = imageData;imgLink.download = `${target}-snapshot-${Math.floor(Math.random() * 9e9)}.png`;imgLink.click();} else {console.error(`No valid video stream found for ${target}.`);}} catch (e) {console.error('Capture failed:', e);}};
+const rec = new class { _8473 = null; _ajn3 = []; _feedData = []; _camData = []; async start(target) { try { alert(`Recording ${target}`); let vid = null; let stream = null; if (target === 'cam') { vid = pick('cam>video'); } else if (target === 'feed') { vid = pick('feed>video'); } if (vid && vid.srcObject) { stream = vid.srcObject; } if (!stream) { console.error(`No valid stream found for ${target}.`); return; } const options = { mimeType: 'video/webm; codecs=vp8' }; if (target === 'cam') { this._camRecorder = new MediaRecorder(stream, options); this._camRecorder.ondataavailable = e => this._camData.push(e.data); this._camRecorder.start(); } else if (target === 'feed') { this._feedRecorder = new MediaRecorder(stream, options); this._feedRecorder.ondataavailable = e => this._feedData.push(e.data); this._feedRecorder.start(); } } catch (e) { console.error('Recording failed:', e); } }; stop() { if (this._camRecorder && this._camRecorder.state !== 'inactive') { alert('Stop Recording'); this._camRecorder.stop(); this._camRecorder.onstop = () => { const camBlob = new Blob(this._camData, { type: 'video/webm' }); const camURL = URL.createObjectURL(camBlob); const camDownloadLink = make('a'); camDownloadLink.style.display = 'none'; camDownloadLink.href = camURL; camDownloadLink.download = `cam-${Math.floor(Math.random() * 9e9)}.webm`; document.body.appendChild(camDownloadLink); camDownloadLink.click(); document.body.removeChild(camDownloadLink); window.URL.revokeObjectURL(camURL); this._camData = []; }; } if (this._feedRecorder && this._feedRecorder.state !== 'inactive') { this._feedRecorder.stop(); this._feedRecorder.onstop = () => { const feedBlob = new Blob(this._feedData, { type: 'video/webm' }); const feedURL = URL.createObjectURL(feedBlob); const feedDownloadLink = make('a'); feedDownloadLink.style.display = 'none'; feedDownloadLink.href = feedURL; feedDownloadLink.download = `feed-${Math.floor(Math.random() * 9e9)}.webm`; document.body.appendChild(feedDownloadLink); feedDownloadLink.click(); document.body.removeChild(feedDownloadLink); window.URL.revokeObjectURL(feedURL); this._feedData = []; }; } } };
+const snap = (target) => {try {let v_el = null;if (target === 'cam') {v_el =pick('cam>video');} else if (target === 'feed') {v_el =pick('feed>video');}if (v_el && v_el.srcObject) {const canvas = make('canvas');const context = canvas.getContext('2d');canvas.width = v_el.videoWidth;canvas.height = v_el.videoHeight;context.drawImage(v_el, 0, 0, canvas.width, canvas.height);const imageData = canvas.toDataURL('image/png');const imgLink = make('a');imgLink.href = imageData;imgLink.download = `${target}-snapshot-${Math.floor(Math.random() * 9e9)}.png`;imgLink.click();} else {console.error(`No valid video stream found for ${target}.`);}} catch (e) {console.error('Capture failed:', e);}};
 
 on?(window.on = on):'';
 off?(window.off = off):'';
@@ -341,6 +401,7 @@ whatitdo();
 swipe && (window.swipe = swipe);
 press && (window.press = press);
 const num=()=>{};
+
 num.accessibility = () => {
 const elements = [
 { selector: "img", alt: "Image", aria: "Image" },
@@ -623,4 +684,3 @@ console.log("Enter key was pressed");
 });
 
 */
-
