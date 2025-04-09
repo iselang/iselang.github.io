@@ -268,12 +268,14 @@ const pop=()=>{};
 pop.up=(enstO)=>{window.open(enstO, "_blank","width=700,height=600,noopener,noreferrer");}
 pop?(window.pop = pop):'';
 
-const bit = () => {};
+bit = () => {}; 
+bit.db = null; 
+bit.var = {}; 
+bit.bc = null;
+
 const _2h = (str) => {
 return [...str].map(char => {
-
 let hexi = char.charCodeAt(0).toString(16);
-
 return hexi.padStart(2, '0');
 }).join('');
 };
@@ -286,30 +288,105 @@ str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
 return str;
 };
 
-let _hex = {};
-bit.set = (address=0, value) => {
+bit = () => {}; 
+bit.db = null; 
+bit.var = {}; 
+bit.bc = null;
 
-const hexAddress = `0x${_2h(address)}`;
-const hexValue = _2h(JSON.stringify(value||''));
-_hex = hexValue;
-address=='SXD'?localStorage.setItem(hexAddress,''):localStorage.setItem(hexAddress, hexValue);
-value?console.log(`[WRITE] @ ${hexAddress} ("${address}")`):console.log(`[WIPE] @ ${hexAddress} ("${address}")`);
-
+bit.init = () => new Promise(d => {
+let req = indexedDB.open('bit', 1);
+req.onupgradeneeded = e => {
+let db = e.target.result;
+db.createObjectStore('dat');
 };
-bit.get = (address) => {
-const hexAddress = `0x${_2h(address)}`;
-console.log(`[READ] @ ${hexAddress} ("${address}")`);
-const hexData = localStorage.getItem(hexAddress);
-if (hexData === null) {
-return null;
-}
+req.onsuccess = e => {
+bit.db = e.target.result;
+bit.bc = new BroadcastChannel('bit_channel');
+bit.bc.onmessage = e => { bit.var = e.data; };
+d();
+};
+});
+
+bit.up = (name, data) => new Promise((d, rej) => {
+if (!bit.db) return rej('DB not initialized');
+
+const hexName = `0x${_2h(name)}`;
+const hexData = _2h(JSON.stringify(data || ''));
+
+let tx = bit.db.transaction('dat', 'readwrite');
+let st = tx.objectStore('dat');
+st.put(hexData, hexName).onsuccess = _ => {
+bit.var[name] = data;
+bit.bc.postMessage(bit.var);
+d(data);
+};
+});
+
+bit.push = (name, data) => new Promise((d, rej) => {
+if (!bit.db) return rej('DB not initialized');
+
+const hexName = `0x${_2h(name)}`;
+let tx = bit.db.transaction('dat', 'readwrite');
+let st = tx.objectStore('dat');
+let req = st.get(hexName);
+
+req.onsuccess = () => {
+let existingData = req.result;
+let newData;
+
+if (existingData) {
 try {
-const decodedData = _f2h(hexData);
-return JSON.parse(decodedData);
+existingData = _f2h(existingData);
+newData = [...JSON.parse(existingData), data];
 } catch (e) {
-return _f2h(hexData);
+newData = [existingData, data];
+}
+} else {
+newData = [data];
+}
+
+const hexData = _2h(JSON.stringify(newData));
+st.put(hexData, hexName).onsuccess = _ => {
+bit.var[name] = newData;
+bit.bc.postMessage(bit.var);
+d(newData);
+};
+};
+
+req.onerror = () => { rej('Error retrieving data'); };
+});
+
+bit.get = (name) => new Promise((d, rej) => {
+if (!bit.db) return rej('DB not initialized');
+
+const hexName = `0x${_2h(name)}`;
+
+let tx = bit.db.transaction('dat', 'readonly');
+let st = tx.objectStore('dat');
+let req = st.get(hexName);
+
+req.onsuccess = () => {
+let hexData = req.result;
+if (hexData === null) {
+d(null);
+} else {
+try {
+let decodedData = _f2h(hexData);
+try {
+d(JSON.parse(decodedData));
+} catch (e) {
+d(decodedData);
+}
+} catch (e) {
+d(null);
+}
 }
 };
+
+req.onerror = () => { rej('Error retrieving data'); };
+});
+
+
 bit?(window.bit = bit):'';
 
 const net = {}; 
