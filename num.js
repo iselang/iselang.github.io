@@ -386,7 +386,6 @@ d(null);
 req.onerror = () => { rej('Error retrieving data'); };
 });
 
-
 bit?(window.bit = bit):'';
 
 const net = {}; 
@@ -708,7 +707,7 @@ func&&(window.func=func);
 const AutoUI = () => {
 let s = new Set([
 "ask", "nav", "task", "preview",
-"slide", "card", "say", "tap", "slide", 
+"slide", "cont", "card", "say", "tap", "slide", 
 "tab"
 ]);
 
