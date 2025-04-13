@@ -1,0 +1,34 @@
+
+say {
+height: auto;
+min-height: auto;
+max-height: none;
+overflow: auto;
+resize: none;
+justify-content: left;
+text-align: left;
+font-size:19px;
+}
+
+
+say[mid] {
+height: auto;
+min-height: auto;
+max-height: none;
+overflow: auto;
+resize: none;
+justify-content: left;
+text-align: left;
+font-size:24px;
+}
+
+say[big] {
+height: auto;
+min-height: auto;
+max-height: none;
+overflow: auto;
+resize: none;
+justify-content: left;
+text-align: left;
+font-size: 28px;
+}
