@@ -111,3 +111,4 @@ textarea, input{outline:solid 2px var(--b) ; width: 100%; max-width:28em; height
 feed,cam {
 max-width: 20em;
 }
+bg { margin:0; border-radius:0; z-index: -1;top:0;left:0;right:0;bottom:0;position:fixed;display:block;}
