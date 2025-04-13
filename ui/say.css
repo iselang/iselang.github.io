@@ -1,5 +1,6 @@
 
 say {
+display:block;
 height: auto;
 min-height: auto;
 max-height: none;
