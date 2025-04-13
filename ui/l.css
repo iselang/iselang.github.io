@@ -32,7 +32,7 @@ transition:none!important;
 color: var(--m);
 border-radius: var(--bdr);font-weight:400; 
 font-size: 19px;  letter-spacing:-1.24px;  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu,
-Cantarell, "Helvetica Neue", sans-serif; background-color: var(--b);border: 0;} 
+Cantarell, "Helvetica Neue", sans-serif; background-color: unset;border: 0;} 
 :root, html, body {  background-color: transparent; border-radius:0px; margin: 0px;}
 body:not(body[full]) { margin: 0 auto;
 max-width: 1280px !important; 
