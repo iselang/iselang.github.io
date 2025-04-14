@@ -79,6 +79,7 @@ make.androi=()=>make.android();
 
 const path=(inTo=null,state={})=>{if(inTo===null)return window.location.pathname;window.history.pushState(state,"",inTo);window.dispatchEvent(newEvent("pathchange"));};
 path.load=(name)=>{let head=document.head||document.querySelector("head");if(!head){console.error("No <head> found!");return;}let preload=document.createElement("link");Object.assign(preload,{rel:"preload",as:"script",href:name});head.append(preload);}
+path.go = _pTr => window.location.href = _pTr;
 let _sfht=['\x69', '\x6e', '\x6e', '\x65', '\x72', '\x48', '\x54', '\x4d', '\x4c'].join('');
 let _sftx = ['\x69', '\x6e', '\x6e', '\x65', '\x72', '\x54', '\x65', '\x78', '\x74'].join('');
 let _sftv=['\x76','\x61','\x6c','\x75','\x65'].join('');
