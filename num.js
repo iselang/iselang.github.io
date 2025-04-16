@@ -705,48 +705,65 @@ num.save();
 func();
 func&&(window.func=func);
 
-const AutoUI = () => {
-let s = new Set([
-"ask", "nav", "task", "preview",
-"slide", "cont", "card", "say", "tap", "slide", 
-"tab"
-]);
+const AutoUI=()=>{
+let s=new Set(["ask","nav","task","preview","slide","cont","card","say","tap","slide","tab"]);
 
-let a = (u) => {
-if (!document.querySelector(`link[href='${u}']`)) {
-let l = document.createElement("link");
-l.rel = "preload";
-l.as = "style";
-l.href = u;
-document.head.appendChild(l);
+let a=u=>{
+if(!document.querySelector(`link[href='${u}']`)){
+let l=document.createElement("link");
+l.rel="preload";l.as="style";l.href=u;document.head.appendChild(l);
 
-let c = document.createElement("link");
-c.rel = "stylesheet";
-c.href = u;
-document.head.appendChild(c);
+let c=document.createElement("link");
+c.rel="stylesheet";c.href=u;document.head.appendChild(c);
 
-let l2 = document.createElement("link");
-l2.rel = "preload";
-l2.as = "style";
-l2.href = u;
-document.head.appendChild(l2);
+let l2=document.createElement("link");
+l2.rel="preload";l2.as="style";l2.href=u;document.head.appendChild(l2);
 
-let c2 = document.createElement("link");
-c2.rel = "stylesheet";
-c2.href = `https://iselang.github.io/${u}`;
-document.head.appendChild(c2);
+let c2=document.createElement("link");
+c2.rel="stylesheet";c2.href=`https://iselang.github.io/${u}`;document.head.appendChild(c2);
 }
 };
 
-s.forEach(e => {
-if (document.querySelector(e)) {
-a(`ui/${e}.css`);
-}
+let att=()=>{
+let all=document.querySelectorAll("[bend],[bendl],[bendr],[bendt],[bendb],[bendtl],[bendtr],[bendbl],[bendbr],[pad],[padl],[padr],[padt],[padb],[space],[spacel],[spacer],[spacet],[spaceb],[center],[left],[right]");
+all.forEach(el=>{
+let st=el.style;
+
+el.hasAttribute("bend")?(st.borderRadius=el.getAttribute("bend")+"px"):0;
+el.hasAttribute("bendl")?(st.borderTopLeftRadius=st.borderBottomLeftRadius=el.getAttribute("bendl")+"px"):0;
+el.hasAttribute("bendr")?(st.borderTopRightRadius=st.borderBottomRightRadius=el.getAttribute("bendr")+"px"):0;
+el.hasAttribute("bendt")?(st.borderTopLeftRadius=st.borderTopRightRadius=el.getAttribute("bendt")+"px"):0;
+el.hasAttribute("bendb")?(st.borderBottomLeftRadius=st.borderBottomRightRadius=el.getAttribute("bendb")+"px"):0;
+el.hasAttribute("bendtl")?(st.borderTopLeftRadius=el.getAttribute("bendtl")+"px"):0;
+el.hasAttribute("bendtr")?(st.borderTopRightRadius=el.getAttribute("bendtr")+"px"):0;
+el.hasAttribute("bendbl")?(st.borderBottomLeftRadius=el.getAttribute("bendbl")+"px"):0;
+el.hasAttribute("bendbr")?(st.borderBottomRightRadius=el.getAttribute("bendbr")+"px"):0;
+
+el.hasAttribute("pad")?(st.padding=el.getAttribute("pad")+"px"):0;
+el.hasAttribute("padl")?(st.paddingLeft=el.getAttribute("padl")+"px"):0;
+el.hasAttribute("padr")?(st.paddingRight=el.getAttribute("padr")+"px"):0;
+el.hasAttribute("padt")?(st.paddingTop=el.getAttribute("padt")+"px"):0;
+el.hasAttribute("padb")?(st.paddingBottom=el.getAttribute("padb")+"px"):0;
+
+el.hasAttribute("space")?(st.margin=el.getAttribute("space")+"px"):0;
+el.hasAttribute("spacel")?(st.marginLeft=el.getAttribute("spacel")+"px"):0;
+el.hasAttribute("spacer")?(st.marginRight=el.getAttribute("spacer")+"px"):0;
+el.hasAttribute("spacet")?(st.marginTop=el.getAttribute("spacet")+"px"):0;
+el.hasAttribute("spaceb")?(st.marginBottom=el.getAttribute("spaceb")+"px"):0;
+
+el.hasAttribute("center")?(st.display="grid",st.placeItems="center"):0;
+el.hasAttribute("left")?(st.display="grid",st.placeItems="start"):0;
+el.hasAttribute("right")?(st.display="grid",st.placeItems="end"):0;
 });
+};
+
+s.forEach(e=>document.querySelector(e)?a(`ui/${e}.css`):0);
+att();
 };
 
 AutoUI();load('ui/l.css');load('https://iselang.github.io/ui/l.css');
 AutoUI&&(window.AutoUI=AutoUI);
+
 })();
 
 /*
