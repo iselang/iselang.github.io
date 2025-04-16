@@ -725,11 +725,24 @@ c2.rel="stylesheet";c2.href=`https://iselang.github.io/${u}`;document.head.appen
 };
 
 let att=()=>{
-let all=document.querySelectorAll("[bend],[bendl],[bendr],[bendt],[bendb],[bendtl],[bendtr],[bendbl],[bendbr],[pad],[padl],[padr],[padt],[padb],[space],[spacel],[spacer],[spacet],[spaceb],[center],[left],[right]");
+let all = document.querySelectorAll([
+"[bend]","[bendl]",
+"[bendr]","[bendt]",
+"[bendb]","[bendtl]",
+"[bendtr]","[bendbl]",
+"[bendbr]","[pad]",
+"[padl]","[padr]",
+"[padt]","[padb]",
+"[space]","[spacel]",
+"[spacer]","[spacet]",
+"[spaceb]","[center]",
+"[left]","[right]"
+]);
+
 all.forEach(el=>{
 let st=el.style;
 
-el.hasAttribute("bend")?(st.borderRadius=el.getAttribute("bend")+"px"):0;
+el.hasAttribute("bend")?(st.borderRadius=el.getAttribute("bend")+"px"+""):0;
 el.hasAttribute("bendl")?(st.borderTopLeftRadius=st.borderBottomLeftRadius=el.getAttribute("bendl")+"px"):0;
 el.hasAttribute("bendr")?(st.borderTopRightRadius=st.borderBottomRightRadius=el.getAttribute("bendr")+"px"):0;
 el.hasAttribute("bendt")?(st.borderTopLeftRadius=st.borderTopRightRadius=el.getAttribute("bendt")+"px"):0;
@@ -738,6 +751,14 @@ el.hasAttribute("bendtl")?(st.borderTopLeftRadius=el.getAttribute("bendtl")+"px"
 el.hasAttribute("bendtr")?(st.borderTopRightRadius=el.getAttribute("bendtr")+"px"):0;
 el.hasAttribute("bendbl")?(st.borderBottomLeftRadius=el.getAttribute("bendbl")+"px"):0;
 el.hasAttribute("bendbr")?(st.borderBottomRightRadius=el.getAttribute("bendbr")+"px"):0;
+
+
+el.hasAttribute("row")?(st.display="flex",st.gap="9px",st.flexDirection="row",st.justifyContent="center",st.placeItems="center",st.flexWrap="wrap"):0;
+el.hasAttribute("row") && Array.from(el.children).forEach(child => {
+child.style.setProperty('flex', '1', 'important');
+child.style.setProperty('max-width', 'unset', 'important');
+});
+
 
 el.hasAttribute("pad")?(st.padding=el.getAttribute("pad")+"px"):0;
 el.hasAttribute("padl")?(st.paddingLeft=el.getAttribute("padl")+"px"):0;
@@ -754,6 +775,7 @@ el.hasAttribute("spaceb")?(st.marginBottom=el.getAttribute("spaceb")+"px"):0;
 el.hasAttribute("center")?(st.display="grid",st.placeItems="center"):0;
 el.hasAttribute("left")?(st.display="grid",st.placeItems="start"):0;
 el.hasAttribute("right")?(st.display="grid",st.placeItems="end"):0;
+
 });
 };
 
