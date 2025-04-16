@@ -23,9 +23,9 @@ text-align: center;  background-color: var(--b); }
 * { text-decoration: none; text-rendering: optimizeLegibility; text-transform: none; user-zoom: none; 
 --bdr:0px;
 --sh:2.5px 2.5px 0px 2px;
---r: #dd4162;  --l: #3855d7;  --y: #fbbc04;  --g: #369162;  --p:#de90a0 ;  --v: #8f41dd;  --m: #fafafa;  --b: #08080b;
---r2: #a5243f;  --l2: #314083;  --y2: #b68905;  --g2: #276846;  --p2: #b36f76; --v2: #6c24a5;  --m2:#eae7f1 !important; --b2: #41414d;
---r3: #df848d;  --l3: #6d82e3;  --y3: #c49f35;  --g3: #7db88f;  --p3: #ee9fa7; --v3: #a675d6;  --m3: #cacfe1;  --b3: #49494d;
+--r: #eb2c4e;  --l: #3855d7;  --y: #ffc92b;  --g: #4ab27c;  --p:#de90a0 ;  --v: #8f41dd;  --m: #fafafa;  --b: #08080b;
+--r2: #a5243f;  --l2: #314083;  --y2: #c6a43e;  --g2: #357b57;  --p2: #b36f76; --v2: #6c24a5;  --m2:#eae7f1 !important; --b2: #41414d;
+--r3: #df848d;  --l3: #6d82e3;  --y3: #cfb25e;  --g3: #7db88f;  --p3: #ee9fa7; --v3: #a675d6;  --m3: #cacfe1;  --b3: #49494d;
 --r4: #f8bcc9;  --l4: #cdd6ff;  --y4: #ffdb71;  --g4: #bafcd8;  --p4: #ffe5e7; --v4: #ebd0ff;  --m4: #dddada;  --b4: #6f6f77;
 
 transition:none!important;
