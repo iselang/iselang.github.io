@@ -74,6 +74,13 @@ body:not(body[full]) { margin: 0 auto;
 max-width: 1280px !important; 
 box-sizing: border-box;
 text-align: center;  background-color: var(--b); }
+body[phone]:not([etc]) {
+margin:0 auto;
+max-width:640px !important;
+box-sizing:border-box;
+text-align:center;
+background-color:var(--b);
+}
 
 [m] {color: var(--m);} svg[m] {fill: var(--m);} [mbg], h1 a {background-color: var(--m);} [mol] {outline: var(--m) solid 1.5px;} [msh] {box-shadow: var(--sh) var(--m);}
 
