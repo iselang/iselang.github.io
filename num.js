@@ -730,7 +730,7 @@ let all = document.querySelectorAll([
 "[bendr]","[bendt]",
 "[bendb]","[bendtl]",
 "[bendtr]","[bendbl]",
-"[bendbr]","[pad]",
+"[bendbr]","[gap]","[pad]",
 "[padl]","[padr]",
 "[padt]","[padb]",
 "[space]","[spacel]",
@@ -741,6 +741,8 @@ let all = document.querySelectorAll([
 
 all.forEach(el=>{
 let st=el.style;
+
+el.hasAttribute("gap")?(st.gap=el.getAttribute("gap")+"px"):0;
 
 el.hasAttribute("bend")?(st.borderRadius=el.getAttribute("bend")+"px"+""):0;
 el.hasAttribute("bendl")?(st.borderTopLeftRadius=st.borderBottomLeftRadius=el.getAttribute("bendl")+"px"):0;
