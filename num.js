@@ -706,7 +706,9 @@ func();
 func&&(window.func=func);
 
 const AutoUI=()=>{
-let s=new Set(["ask","nav","task","preview","slide","cont","card","say","tap","slide","tab"]);
+let s=new Set(["ask","nav","task",
+"preview","slide","cont","card",
+"item", "row", "say","tap","slide","tab",]);
 
 let a=u=>{
 if(!document.querySelector(`link[href='${u}']`)){
