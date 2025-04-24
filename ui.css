@@ -1,0 +1,644 @@
+/* Hey i know this is online
+
+My code is not about the coder
+It is about the advancement it did.
+
+github.com/iselang/num
+
+Copyleft By Actwu
+*/
+/* devanagari */
+@font-face {
+font-family: 'Poppins';
+font-style: italic;
+font-weight: 100;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiAyp8kv8JHgFVrJJLmE0tDMPKzSQ.woff2) format('woff2');
+unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+font-family: 'Poppins';
+font-style: italic;
+font-weight: 100;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiAyp8kv8JHgFVrJJLmE0tMMPKzSQ.woff2) format('woff2');
+unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+font-family: 'Poppins';
+font-style: italic;
+font-weight: 100;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiAyp8kv8JHgFVrJJLmE0tCMPI.woff2) format('woff2');
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+font-family: 'Poppins';
+font-style: italic;
+font-weight: 200;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiDyp8kv8JHgFVrJJLmv1pVFteOcEg.woff2) format('woff2');
+unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+font-family: 'Poppins';
+font-style: italic;
+font-weight: 200;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiDyp8kv8JHgFVrJJLmv1pVGdeOcEg.woff2) format('woff2');
+unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+font-family: 'Poppins';
+font-style: italic;
+font-weight: 200;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiDyp8kv8JHgFVrJJLmv1pVF9eO.woff2) format('woff2');
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+font-family: 'Poppins';
+font-style: italic;
+font-weight: 300;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiDyp8kv8JHgFVrJJLm21lVFteOcEg.woff2) format('woff2');
+unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+font-family: 'Poppins';
+font-style: italic;
+font-weight: 300;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiDyp8kv8JHgFVrJJLm21lVGdeOcEg.woff2) format('woff2');
+unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+font-family: 'Poppins';
+font-style: italic;
+font-weight: 300;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiDyp8kv8JHgFVrJJLm21lVF9eO.woff2) format('woff2');
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+font-family: 'Poppins';
+font-style: italic;
+font-weight: 400;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiGyp8kv8JHgFVrJJLucXtAKPY.woff2) format('woff2');
+unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+font-family: 'Poppins';
+font-style: italic;
+font-weight: 400;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiGyp8kv8JHgFVrJJLufntAKPY.woff2) format('woff2');
+unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+font-family: 'Poppins';
+font-style: italic;
+font-weight: 400;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiGyp8kv8JHgFVrJJLucHtA.woff2) format('woff2');
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+font-family: 'Poppins';
+font-style: italic;
+font-weight: 500;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiDyp8kv8JHgFVrJJLmg1hVFteOcEg.woff2) format('woff2');
+unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+font-family: 'Poppins';
+font-style: italic;
+font-weight: 500;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiDyp8kv8JHgFVrJJLmg1hVGdeOcEg.woff2) format('woff2');
+unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+font-family: 'Poppins';
+font-style: italic;
+font-weight: 500;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiDyp8kv8JHgFVrJJLmg1hVF9eO.woff2) format('woff2');
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+font-family: 'Poppins';
+font-style: italic;
+font-weight: 600;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiDyp8kv8JHgFVrJJLmr19VFteOcEg.woff2) format('woff2');
+unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+font-family: 'Poppins';
+font-style: italic;
+font-weight: 600;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiDyp8kv8JHgFVrJJLmr19VGdeOcEg.woff2) format('woff2');
+unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+font-family: 'Poppins';
+font-style: italic;
+font-weight: 600;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiDyp8kv8JHgFVrJJLmr19VF9eO.woff2) format('woff2');
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+font-family: 'Poppins';
+font-style: italic;
+font-weight: 700;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiDyp8kv8JHgFVrJJLmy15VFteOcEg.woff2) format('woff2');
+unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+font-family: 'Poppins';
+font-style: italic;
+font-weight: 700;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiDyp8kv8JHgFVrJJLmy15VGdeOcEg.woff2) format('woff2');
+unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+font-family: 'Poppins';
+font-style: italic;
+font-weight: 700;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiDyp8kv8JHgFVrJJLmy15VF9eO.woff2) format('woff2');
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+font-family: 'Poppins';
+font-style: italic;
+font-weight: 800;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiDyp8kv8JHgFVrJJLm111VFteOcEg.woff2) format('woff2');
+unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+font-family: 'Poppins';
+font-style: italic;
+font-weight: 800;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiDyp8kv8JHgFVrJJLm111VGdeOcEg.woff2) format('woff2');
+unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+font-family: 'Poppins';
+font-style: italic;
+font-weight: 800;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiDyp8kv8JHgFVrJJLm111VF9eO.woff2) format('woff2');
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+font-family: 'Poppins';
+font-style: italic;
+font-weight: 900;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiDyp8kv8JHgFVrJJLm81xVFteOcEg.woff2) format('woff2');
+unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+font-family: 'Poppins';
+font-style: italic;
+font-weight: 900;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiDyp8kv8JHgFVrJJLm81xVGdeOcEg.woff2) format('woff2');
+unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+font-family: 'Poppins';
+font-style: italic;
+font-weight: 900;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiDyp8kv8JHgFVrJJLm81xVF9eO.woff2) format('woff2');
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 100;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiGyp8kv8JHgFVrLPTucXtAKPY.woff2) format('woff2');
+unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 100;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiGyp8kv8JHgFVrLPTufntAKPY.woff2) format('woff2');
+unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 100;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiGyp8kv8JHgFVrLPTucHtA.woff2) format('woff2');
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 200;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiByp8kv8JHgFVrLFj_Z11lFc-K.woff2) format('woff2');
+unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 200;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiByp8kv8JHgFVrLFj_Z1JlFc-K.woff2) format('woff2');
+unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 200;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiByp8kv8JHgFVrLFj_Z1xlFQ.woff2) format('woff2');
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 300;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiByp8kv8JHgFVrLDz8Z11lFc-K.woff2) format('woff2');
+unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 300;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiByp8kv8JHgFVrLDz8Z1JlFc-K.woff2) format('woff2');
+unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 300;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiByp8kv8JHgFVrLDz8Z1xlFQ.woff2) format('woff2');
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiEyp8kv8JHgFVrJJbecmNE.woff2) format('woff2');
+unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiEyp8kv8JHgFVrJJnecmNE.woff2) format('woff2');
+unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiEyp8kv8JHgFVrJJfecg.woff2) format('woff2');
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiByp8kv8JHgFVrLGT9Z11lFc-K.woff2) format('woff2');
+unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiByp8kv8JHgFVrLGT9Z1JlFc-K.woff2) format('woff2');
+unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiByp8kv8JHgFVrLGT9Z1xlFQ.woff2) format('woff2');
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiByp8kv8JHgFVrLEj6Z11lFc-K.woff2) format('woff2');
+unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiByp8kv8JHgFVrLEj6Z1JlFc-K.woff2) format('woff2');
+unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2) format('woff2');
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 700;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiByp8kv8JHgFVrLCz7Z11lFc-K.woff2) format('woff2');
+unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 700;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiByp8kv8JHgFVrLCz7Z1JlFc-K.woff2) format('woff2');
+unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 700;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2) format('woff2');
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 800;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiByp8kv8JHgFVrLDD4Z11lFc-K.woff2) format('woff2');
+unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 800;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiByp8kv8JHgFVrLDD4Z1JlFc-K.woff2) format('woff2');
+unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 800;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiByp8kv8JHgFVrLDD4Z1xlFQ.woff2) format('woff2');
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 900;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiByp8kv8JHgFVrLBT5Z11lFc-K.woff2) format('woff2');
+unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+}
+/* latin-ext */
+@font-face {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 900;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiByp8kv8JHgFVrLBT5Z1JlFc-K.woff2) format('woff2');
+unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 900;
+font-display: swap;
+src: url(https://fonts.gstatic.com/s/poppins/v23/pxiByp8kv8JHgFVrLBT5Z1xlFQ.woff2) format('woff2');
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+body[full] { margin: 0 auto;
+max-width: 90vw; 
+
+box-sizing: border-box;
+text-align: center;  background-color: var(--b); }
+
+[hide],[hide] *, app,js,hide { display:none; visibility:hidden; width:0;height:0; size:0;opacity:0%; font-size:0; color:transparent; background:transparent;position:fixed; top:0;z-index:-2;}
+
+::-webkit-scrollbar {min-width: 5px; width: 5px; margin:2px; min-height: 10px; height: 10px; border: 1.5px solid var(--b2); }
+::-webkit-scrollbar-thumb {background:var(--b3);border-radius: var(--bdr);}
+::-webkit-scrollbar-thumb:hover {background:var(--b2);} 
+* {
+
+transition:none!important;
+--r: #eb2c4e;
+--r2: #a5243f;
+--r3: #df848d;
+--r4: #f8bcc9;
+
+--l: #3855d7;
+--l2: #314083;
+--l3: #6d82e3;
+--l4: #cdd6ff;
+
+--y: #ffc92b;
+--y2: #c6a43e;
+--y3: #cfb25e;
+--y4: #ffdb71;
+
+--g: #4ab27c;
+--g2: #357b57;
+--g3: #7db88f;
+--g4: #bafcd8;
+
+--p: #de90a0;
+--p2: #b36f76;
+--p3: #ee9fa7;
+--p4: #ffe5e7;
+
+--v: #8f41dd;
+--v2: #6c24a5;
+--v3: #a675d6;
+--v4: #ebd0ff;
+
+--m: #fafafa;
+--m2: #eae7f1 !important;
+--m3: #cacfe1;
+--m4: #dddada;
+
+--b: #19191c !important;
+--b2: #202127 !important;
+--b3: #363843 !important;
+--b4: #363843 !important;
+--bdr:16px !important;
+--sh:2.5px 2.5px 0px 2px;
+
+text-decoration: none; text-rendering: optimizeLegibility; text-transform: none; user-zoom: none; 
+
+color: var(--m);
+border-radius: var(--bdr);font-weight:400; 
+font-size: 19px;  letter-spacing:-1.24px;  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu,
+Cantarell, "Helvetica Neue", sans-serif; background-color: unset;border: 0;} 
+:root, html, body {  background-color: transparent; border-radius:0px; margin: 0px;}
+body:not(body[full]) { margin: 0 auto;
+max-width: 1280px !important; 
+box-sizing: border-box;
+text-align: center;  background-color: var(--b); }
+body[phone]:not([etc]) {
+margin:0 auto;
+max-width:640px !important;
+box-sizing:border-box;
+text-align:center;
+background-color:var(--b);
+}
+
+[m] {color: var(--m);} svg[m] {fill: var(--m);} [mbg], h1 a {background-color: var(--m);} [mol] {outline: var(--m) solid 1.5px;} [msh] {box-shadow: var(--sh) var(--m);}
+
+[b],h1 a {color:var(--b);} svg[b] {fill: var(--b);} [bbg], p a {background-color:var(--b);} [bol] {outline: var(--b) solid 1.5px;} [bsh] {box-shadow: var(--sh) var(--b );}
+
+[r] {color:var(--r);} svg[r] {fill: var(--r);} [rbg],h2 a{background-color:var(--r);}[rol] {outline: var(--r) solid 1.5px;} [rsh] {box-shadow: var(--sh) var(--r);}
+
+[y] {color:var(--y);} svg[y] {fill: var(--y);} [ybg], h3 a {background-color:var(--y);} [yol] {outline:var(--y) solid 1.5px;} [ysh] {box-shadow: var(--sh) var(--y );}
+
+[l] {color:var(--l);} svg[l] {fill: var(--l);} [lbg], h4 a {background-color:var(--l); } [lol] {outline:var(--l) solid 1.5px;} [lsh] {box-shadow: var(--sh) var(--l );}
+
+[g] {color:var(--g);} svg[g] {fill: var(--g);} [gbg], h5 a {background-color:var(--g);} [gol] {outline:var(--g) solid 1.5px;} [gsh] {box-shadow: var(--sh) var(--g );}
+
+[p] {color:var(--p);} svg[p] {fill: var(--p);} [pbg], h6 a {background-color:var(--p);} [pol] {outline:var(--p) solid 1.5px;} [psh] {box-shadow: var(--sh) var(--p );}
+
+[v] {color:var(--v);} svg[v] {fill: var(--v);} [vbg] {background-color:var(--v);} [vol] {outline:var(--v) solid 1.5px;} [vsh] {box-shadow: var(--sh) var(--v);}
+
+
+[m2] {color: var(--m2);} svg[m2] {fill: var(--m2);} [mbg2] {background-color: var(--m2);} [mol2] {outline: var(--m2) solid 1px;} [msh2] {box-shadow: var(--sh) var(--m2);}
+
+[b2] {color:var(--b2);} svg[b2] {fill: var(--b2);} [bbg2] {background-color:var(--b2);} [bol2] {outline: var(--b2) solid 1px;} [bsh2] {box-shadow: var(--sh) var(--b2);}
+
+[r2] {color:var(--r2);} svg[r2] {fill: var(--r2);} [rbg2] {background-color:var(--r2);}[rol2] {outline: var(--r2) solid 1px;} [rsh2] {box-shadow: var(--sh) var(--r2);}
+
+[y2] {color:var(--y2);} svg[y2] {fill: var(--y2);} [ybg2] {background-color:var(--y2);} [yol2] {outline:var(--y2) solid 1px;} [ysh2] {box-shadow: var(--sh) var(--y2);}
+
+[l2] {color:var(--l2);} svg[l2] {fill: var(--l2);} [lbg2] {background-color:var(--l2); } [lol2] {outline:var(--l2) solid 1px;} [lsh2] {box-shadow: var(--sh) var(--l2);}
+
+[g2] {color:var(--g2);} svg[g2] {fill: var(--g2);} [gbg2] {background-color:var(--g2);} [gol2] {outline:var(--g2) solid 1px;} [gsh2] {box-shadow: var(--sh) var(--g2);}
+
+[p2] {color:var(--p2);} svg[p2] {fill: var(--p2);} [pbg2] {background-color:var(--p2);} [pol2] {outline:var(--p2) solid 1px;} [psh2] {box-shadow: var(--sh) var(--p2);}
+
+[v2] {color:var(--v2);} svg[v2] {fill: var(--v2);} [vbg2] {background-color:var(--v2);} [vol2] {outline:var(--v2) solid 1px;} [vsh2] {box-shadow: var(--sh) var(--v2);}
+
+
+[m3] {color: var(--m3);} svg[m3] {fill: var(--m3);} [mbg3] {background-color: var(--m3);} [mol3] {outline: var(--m3) solid 1px;} [msh3] {box-shadow: var(--sh) var(--m3);}
+
+[b3] {color:var(--b3);} svg[b3] {fill: var(--b3);} [bbg3] {background-color:var(--b3);} [bol3] {outline: var(--b3) solid 1px;} [bsh3] {box-shadow: var(--sh) var(--b3);}
+
+[r3] {color:var(--r3);} svg[r3] {fill: var(--r3);} [rbg3] {background-color:var(--r3);}[rol3] {outline: var(--r3) solid 1px;} [rsh3] {box-shadow: var(--sh) var(--r3);}
+
+[y3] {color:var(--y3);} svg[y3] {fill: var(--y3);} [ybg3] {background-color:var(--y3);} [yol3] {outline:var(--y3) solid 1px;} [ysh3] {box-shadow: var(--sh) var(--y3);}
+
+[l3] {color:var(--l3);} svg[l3] {fill: var(--l3);} [lbg3] {background-color:var(--l3); } [lol3] {outline:var(--l3) solid 1px;} [lsh3] {box-shadow: var(--sh) var(--l3);}
+
+[g3] {color:var(--g3);} svg[g3] {fill: var(--g3);} [gbg3] {background-color:var(--g3);} [gol3] {outline:var(--g3) solid 1px;} [gsh3] {box-shadow: var(--sh) var(--g3);}
+
+[p3] {color:var(--p3);} svg[p3] {fill: var(--p3);} [pbg3] {background-color:var(--p3);} [pol3] {outline:var(--p3) solid 1px;} [psh3] {box-shadow: var(--sh) var(--p3);}
+
+[v3] {color:var(--v3);} svg[v3] {fill: var(--v3);} [vbg3] {background-color:var(--v3);} [vol3] {outline:var(--v3) solid 1px;} [vsh3] {box-shadow: var(--sh) var(--v3);}
+
+
+[m4] {color: var(--m4);} svg[m4] {fill: var(--m4);} [mbg4] {background-color: var(--m4);} [mol4] {outline: var(--m4) solid 1px;} [msh4] {box-shadow: var(--sh) var(--m4);}
+
+[b4] {color:var(--b4);} svg[b4] {fill: var(--b4);} [bbg4] {background-color:var(--b4);} [bol4] {outline: var(--b4) solid 1px;} [bsh4] {box-shadow: var(--sh) var(--b4);}
+
+[r4] {color:var(--r4);} svg[r4] {fill: var(--r4);} [rbg4] {background-color:var(--r4);}[rol4] {outline: var(--r4) solid 1px;} [rsh4] {box-shadow: var(--sh) var(--r4);}
+
+[y4] {color:var(--y4);} svg[y4] {fill: var(--y4);} [ybg4] {background-color:var(--y4);} [yol4] {outline:var(--y4) solid 1px;} [ysh4] {box-shadow: var(--sh) var(--y4);}
+
+[l4] {color:var(--l4);} svg[l4] {fill: var(--l4);} [lbg4] {background-color:var(--l4); } [lol4] {outline:var(--l4) solid 1px;} [lsh4] {box-shadow: var(--sh) var(--l4);}
+
+[g4] {color:var(--g4);} svg[g4] {fill: var(--g4);} [gbg4] {background-color:var(--g4);} [gol4] {outline:var(--g4) solid 1px;} [gsh4] {box-shadow: var(--sh) var(--g4);}
+
+[p4] {color:var(--p4);} svg[p4] {fill: var(--p4);} [pbg4] {background-color:var(--p4);} [pol4] {outline:var(--p4) solid 1px;} [psh4] {box-shadow: var(--sh) var(--p4);}
+
+[v4] {color:var(--v4);} svg[v4] {fill: var(--v4);} [vbg4] {background-color:var(--v4);} [vol4] {outline:var(--v4) solid 1px;} [vsh4] {box-shadow: var(--sh) var(--v4);}
+
+img, embed, iframe, video{outline:solid 2px var(--b) ; width:80%; max-width: 28em;  height: auto;} 
+textarea, input{outline:solid 2px var(--b) ; width: 100%; max-width:28em; height: auto; } 
+feed,cam {
+max-width: 20em;
+}
+bg { margin:0; border-radius:0; z-index: -1;top:0;left:0;right:0;bottom:0;position:fixed;display:block;}
