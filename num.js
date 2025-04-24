@@ -22,13 +22,13 @@ return elements;
 const make=rel=>{return document.createElement(rel||'body')};
 const load = (link) => {
 if (link.includes("num/")) {
-link = `https://iselang.github.io/${link}`;
+link = `https://iselang.github.io/${link.replace("num/", "")}`;
 }
 let type = link.endsWith(".js") ? "script" : link.endsWith(".css") ? "style" : null;
 if (!type) return;
 let head = document.head;
 ["preload"].forEach((rel) => {
-    let p = make("link");
+let p = make("link");
 p.rel = rel;
 p.as = type;
 p.href = link;
@@ -40,7 +40,6 @@ if (type === "style") el.rel = "stylesheet";
 el.onload = () => console.log(`Loaded: ${link}`);
 head.appendChild(el);
 };
-
 const path=(inTo=null,state={})=>{if(inTo===null)return window.location.pathname;window.history.pushState(state,"",inTo);window.dispatchEvent(newEvent("pathchange"));};
 path.load=(name)=>{let head=document.head||document.querySelector("head");if(!head){console.error("No <head> found!");return;}let preload=document.createElement("link");Object.assign(preload,{rel:"preload",as:"script",href:name});head.append(preload);}
 path.go = _pTr => window.location.href = _pTr;
@@ -546,35 +545,4 @@ num.save();
 
 func();
 func&&(window.func=func);
-
-
-
-/*
-
-load('num/sys/harware.js');
-load('num/sys/make.js');
-load('num/sys/md.js');
-load('num/sys/move.js');
-load('num/sys/net.js');
-load('num/sys/oth.js');
-load('num/sys/swipe.js');
-load('ui.js');
-
-Press "ctrl" + "s" (save)
-press(['ctrl', 's'], () => {
-console.log("Ctrl + S was pressed");
-});
-
-Press "alt" + "shift" + "A"
-press(['alt', 'shift', 'a'], () => {
-console.log("Alt + Shift + A was pressed");
-});
-
-Press "enter"
-press(['enter'], () => {
-console.log("Enter key was pressed");
-});
-
-*/
-
 })();
