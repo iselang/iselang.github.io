@@ -1,26 +1,289 @@
 
 (function(){
 const AutoUI=()=>{
-let s=new Set(["ask","nav","task","preview","slide","cont","card","item","row","say","tap","slide","tab"]);
+let s = new Set(["ask", "nav", "task", "preview", "slide", "cont", "card", "item", "row", "say", "tap", "slide", "tab"]);
 
-let a=async u=>{
-const tyDUI=u.replace("ui",'').replace("/",'').replace(".css",'');
-if(!pick(`style[data='${tyDUI}']`)){
-let style=make("style");
-style.at=`data='${tyDUI}'`;
+const cssContent = {
+ask: `
+
+ask {
+display:flex;
+place-content: left;
+display: block;
+min-width: 10px;
+max-width: 100%;
+padding: 0.08in 0.15in;
+border-radius: var(--bdr);
+height: auto;
+min-height: auto;
+max-height: none;
+overflow: auto;
+resize: vertical;
+justify-content: left;
+text-align: left;
+}
+ask:empty::before {
+content: attr(say);
+color: var(--b2);
+}
+`,
+nav: `
+nav{
+display: block;
+place-content: center;
+justify-content: center;
+min-height: 2em;
+width: auto;
+max-width: 1280px;
+top: 0;
+position: sticky;
+z-index: 2;
+}
+`,
+
+task: `
+
+task{
+display: block;
+place-content: center;
+justify-content: center;
+min-height: 2em;
+width: auto;
+bottom: 0;
+position: sticky;
+z-index: 2;
+padding:2.5px;
+}
+`,
+
+preview: `
+previews {
+display: flex;
+overflow-x: auto;
+width: auto ;
+scroll-snap-type: x mandatory;
+padding:2.5px;
+gap: 2.5px;
+}
+
+preview {
+flex-shrink: 0;
+width: 150px;
+height: 190px;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+color: white;
+scroll-snap-align: center; 
+}
+previews {
+display: flex;
+overflow-x: auto;
+width: auto ;
+scroll-snap-type: x mandatory;
+padding:2.5px;
+}
+
+preview {
+flex-shrink: 0;
+width: 150px;
+height: 190px;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+color: white;
+scroll-snap-align: center; 
+}
+
+
+`,
+
+slide: `
+
+slides {
+display: flex;
+overflow-x: auto;
+width: auto;
+scroll-snap-type: x mandatory; 
+padding: 2px;   
+scroll-padding: 2px;
+}
+
+slide {
+flex-shrink: 0;
+width: 100%;
+height: 80svh;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+scroll-snap-align: start; 
+}
+
+`,
+cont: `
+cont{
+display: block;
+place-content: center;
+justify-content: flex;
+height: 90svh;
+width: auto;
+
+}
+
+
+`,
+
+card: `
+cards {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+width: auto;
+overflow-x: hidden;
+padding:2.5px;
+gap: 2.5px;
+}
+
+card {
+width: 100%;
+height: 190px;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+}
+
+@media (min-width: 600px) and (max-width: 1024px) {
+cards {
+grid-template-columns: repeat(3, 1fr); 
+gap: 2.5px;
+}
+}
+
+@media (min-width: 1024px) {
+cards {
+grid-template-columns: repeat(4, 1fr); gap: 2.5px;
+}
+}
+
+`,
+item: `
+
+item { 
+display: flex;
+place-content:center; 
+align-items: center;
+justify-content: center;
+}
+
+`,
+row: `
+row { 
+display: flex;
+place-content:center; 
+align-items: center;
+justify-content: center;
+flex-direction: row;
+}
+row * {
+flex: 1;
+}
+
+`,
+say: `
+
+say {
+display:block;
+height: auto;
+min-height: auto;
+max-height: none;
+overflow: auto;
+resize: none;
+justify-content: left;
+text-align: left;
+font-size:20px;
+}
+
+
+say[mid] {
+height: auto;
+min-height: auto;
+max-height: none;
+overflow: auto;
+resize: none;
+justify-content: left;
+text-align: left;
+font-size:24px;
+}
+
+say[big] {
+height: auto;
+min-height: auto;
+max-height: none;
+overflow: auto;
+resize: none;
+justify-content: left;
+text-align: left;
+font-size: 28px;
+}
+
+
+`,
+tap: `
+tap {
+display:flex;
+place-content: center;
+display: block;
+min-width: 10px;
+max-width: max-content;
+padding: 0.08in 0.15in;
+border-radius: var(--bdr);
+height: auto;
+min-height: auto;
+max-height: none;
+overflow: auto;
+justify-content: center;
+text-align: center;
+}
+`,
+
+tab: `
+tabs {
+display: flex;
+overflow-x: auto;
+width: auto ;
+scroll-snap-type: x mandatory;
+padding:2.5px;
+gap: 2.5px;
+}
+
+tab {
+flex-shrink: 0;
+width: 120px;
+height: 60px;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+scroll-snap-align: center; 
+}
+
+`
+};
+
+let a = (u) => {
+const tyDUI = u.replace("ui", '').replace("/", '').replace(".css", '');
+if (!pick(`style[data='${tyDUI}']`)) {
+let style = make("style");
+style.setAttribute('data', tyDUI);
 document.body.appendChild(style);
-try{
-let response=await fetch(u);
-if(response.ok){
-style.textContent=await response.text();
-}else{
-let fallback=await fetch(`https://iselang.github.io/${u}`);
-if(fallback.ok){
-style.textContent=await fallback.text();
-}
-}
-}catch(e){
-console.error(`Failed to fetch CSS for ${u}:`,e);
+
+if (cssContent[tyDUI]) {
+style.textContent = cssContent[tyDUI];
+} else {
+console.error(`CSS content for ${tyDUI} not found.`);
 }
 }
 };
