@@ -4,6 +4,7 @@ overflow-x: auto;
 width: auto ;
 scroll-snap-type: x mandatory;
 padding:2.5px;
+gap: 2.5px;
 }
 
 preview {

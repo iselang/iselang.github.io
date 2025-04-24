@@ -60,7 +60,7 @@ text-align: center;  background-color: var(--b); }
 --b2: #202127 !important;
 --b3: #363843 !important;
 --b4: #363843 !important;
---bdr:0px;
+--bdr:16px !important;
 --sh:2.5px 2.5px 0px 2px;
   
 text-decoration: none; text-rendering: optimizeLegibility; text-transform: none; user-zoom: none; 

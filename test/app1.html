@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<meta ref="convert:num">
+<head>
+<link rel='preload' as="script" href='num.js'>
+</head>
+
+<body phone>
+
+<bg bbg></bg>
+
+<part id="pa" >
+
+<nav bbg row pad="10"> 
+<tap bend="15" center >
+<i l3 class="fa-solid fa-compass" mid></i>
+</tap>
+<tap bend="15" center
+do="
+pick('#pa').toggle;
+pick('#pb').toggle;
+">
+<i class="fa-solid fa-search" mid></i>
+</tap>
+<tap bend="15" center 
+do="
+pick('#pa').toggle;
+pick('#pc').toggle;
+">
+<i class="fa-solid fa-circle-user" mid></i>
+</tap>
+
+</nav>
+
+<slides spaceb="20">
+<slide>
+<say big>Start</say>
+</slide>
+<slide>
+<say big>Here</say>
+</slide>
+</slides>
+
+<cards pad="0" style="gap: 10px;;">
+<card bbg2 bol bend="15" >
+<say>im a card</say>
+</card>
+
+<card bbg2 bol bend="15" >
+<say>im a card</say>
+</card>
+<card bbg2 bol bend="15" >
+<say>im a card</say>
+</card>
+<card bbg2 bol bend="15" >
+<say>im a card</say>
+</card>
+<card bbg2 bol bend="15" >
+<say>im a card</say>
+</card>
+<card bbg2 bol bend="15" >
+<say>im a card</say>
+</card>
+<card bbg2 bol bend="15" >
+<say>im a card</say>
+</card>
+<card bbg2 bol bend="15" >
+<say>im a card</say>
+</card>
+<card bbg2 bol bend="15" >
+<say>im a card</say>
+</card>
+<card bbg2 bol bend="15" >
+<say>im a card</say>
+</card>
+<card bbg2 bol bend="15" >
+<say>im a card</say>
+</card>
+<card bbg2 bol bend="15" >
+<say>im a card</say>
+</card>
+
+</cards>
+</part>
+
+<part id="pb" hide>
+
+<nav bbg row pad="10"> 
+<tap bend="15" center do="
+pick('#pa').toggle;
+pick('#pb').toggle;
+">
+<i class="fa-solid fa-compass" mid></i>
+</tap>
+<tap bend="15" center>
+<i l3 class="fa-solid fa-search" mid></i>
+</tap>
+<tap bend="15" center 
+do="
+pick('#pb').toggle;
+pick('#pc').toggle;
+">
+<i class="fa-solid fa-circle-user" mid></i>
+</tap>
+
+</nav>
+
+</part>
+
+<part id="pc" hide>
+<nav bbg row pad="10"> 
+<tap bend="15" center do="
+pick('#pc').toggle;
+pick('#pa').toggle;
+">
+<i class="fa-solid fa-compass" mid></i>
+</tap>
+<tap bend="15" center do="
+pick('#pc').toggle;
+pick('#pb').toggle;
+">
+<i class="fa-solid fa-search" mid></i>
+</tap>
+<tap bend="15" center >
+<i l3 class="fa-solid fa-circle-user" mid></i>
+</tap>
+
+</nav>
+
+</part>
+</body>
+<script src="num.js"></script>
+<script>
+load("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css")
+app('Sumer');
+fav(8);
+</script>
