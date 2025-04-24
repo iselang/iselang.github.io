@@ -1,4 +1,5 @@
 
+(function(){
 const net = {}; 
 net.get = (url) => {
 const req = new XMLHttpRequest();
@@ -15,3 +16,5 @@ return req.status === 200 ? req.responseText : 'Failed to post';
 };
 
 net ? (window.net = net) : '';
+
+})();
