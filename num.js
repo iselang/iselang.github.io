@@ -20,6 +20,17 @@ return elements;
 };
 
 const make=rel=>{return document.createElement(rel||'body')};
+  
+make.file=(filename, filetype, data)=> {
+const blob = new Blob([data], { type: filetype });
+const url = URL.createObjectURL(blob);
+const a = document.createElement('a');
+a.href = url;
+a.download = filename;
+a.click();
+URL.revokeObjectURL(url);
+};
+  
 const load = (link) => {
 if (link.includes("num/")) {
 link = `https://iselang.github.io/${link.replace("num/", "")}`;
@@ -519,6 +530,8 @@ URL.revokeObjectURL(url);
 });
 });
 };
+
+  
 num.origin = orn => {  
 (!document.querySelector('link[rel="canonical"]')) && (
 link = document.createElement('link'),  
