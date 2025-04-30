@@ -22,32 +22,21 @@ a.click();
 make.lin=()=>make.linux();
 make.linu=()=>make.linux();
 make.android=()=>{
-pick('body').text='';
-pick('body').put(
-make('tap')
-.at('el1')
-);
-pick('body').put(
-make('tap')
-.at('el2')
-);
+pick().innerText="";
+at1=make("tap");
+at1.at=[`do="path.go('https://github.com/new')`,`lbg`, `pad="10"`, `space="5"`]
+at1.text="1. Web it."
 
-pick('[el1]')
-.at('lbg')
-.at('m')
-.at('style','text-align:left;')
-.at('bend','25')
-.at('do',`outside('https://github.com/new')`)
-.text='1. Put your ise';
+at2=make("tap");
+at2.at=[`do="path.go('https://median.co')`, `lbg`, `pad="10"`,`space="5"`]
 
-pick('[el2]')
-.at('gbg')
-.at('style','text-align:left;')
-.at('do',`outside('https://median.co/app')`)
-.at('m')
-.at('bend','25')
-.text='2. Make it a Android App';
+at2.text="2. You Median it."
 
+pick().put=at1;
+pick().put=at2;
+
+func();
+AutoUi();
 }
 make.an=()=>make.android();
 make.and=()=>make.android();
