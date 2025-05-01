@@ -337,6 +337,7 @@ bit?(window.bit = bit):'';
 
 const num=()=>{};
 
+  
 num.accessibility = () => {
 const elements = [
 { selector: "img", alt: "Image", aria: "Image" },
@@ -371,12 +372,17 @@ if (!item.hasAttribute("aria-label")) {
 item.setAttribute("aria-label", dynamicAria);
 }
 
-if (selector === "say" && !item.hasAttribute("alt")) {
+if (!item.hasAttribute("say")) {
+item.setAttribute("aria-label", dynamicAria);
+}
+
+if (selector === "say" && !item.hasAttribute("alt") || selector === "ask" && !item.hasAttribute("alt")) {
 item.setAttribute("alt", dynamicAlt);
 }
 });
 });
 };
+  
 num.dom = () => {
 
 const doctype = document.doctype;
