@@ -371,8 +371,8 @@ if (!item.hasAttribute("aria-label")) {
 item.setAttribute("aria-label", dynamicAria);
 }
 
-if (!item.hasAttribute("say")) {
-item.setAttribute("aria-label", dynamicAria);
+if (item.hasAttribute("say")) {
+item.setAttribute("aria-label", item.getAttribute("say"));
 }
 
 if (selector === "say" && !item.hasAttribute("alt") ) {
