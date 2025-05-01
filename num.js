@@ -344,8 +344,7 @@ const elements = [
 { selector: "video", alt: "Video", aria: "Video" },
 { selector: "iframe", alt: "Iframe", aria: "Iframe" },
 { selector: "embed", alt: "Embed", aria: "Embed" },
-{ selector: "say", alt: "Say text", aria: "Say text" },
-{ selector: "ask", alt: "Input", aria: "Input" }
+{ selector: "say", alt: "Say text", aria: "Say text" }
 ];
 
 elements.forEach(({ selector, alt, aria }) => {
@@ -376,7 +375,7 @@ if (!item.hasAttribute("say")) {
 item.setAttribute("aria-label", dynamicAria);
 }
 
-if (selector === "say" && !item.hasAttribute("alt") || selector === "ask" && !item.hasAttribute("alt")) {
+if (selector === "say" && !item.hasAttribute("alt") ) {
 item.setAttribute("alt", dynamicAlt);
 }
 });
