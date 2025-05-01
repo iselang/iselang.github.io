@@ -344,7 +344,7 @@ const elements = [
 { selector: "iframe", alt: "Iframe", aria: "Iframe" },
 { selector: "embed", alt: "Embed", aria: "Embed" },
 { selector: "say", alt: "Say text", aria: "Say text" },
-{ selector: "tap", alt: "Tap button", aria: "Tap button" }
+{ selector: "ask", alt: "Input", aria: "Input" }
 ];
 
 elements.forEach(({ selector, alt, aria }) => {
