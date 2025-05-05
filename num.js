@@ -336,8 +336,6 @@ req.onerror = () => { rej('Error retrieving data'); };
 bit?(window.bit = bit):'';
 
 const num=()=>{};
-
-  
 num.accessibility = () => {
 const elements = [
 { selector: "img", alt: "Image", aria: "Image" },
@@ -349,38 +347,31 @@ const elements = [
 
 elements.forEach(({ selector, alt, aria }) => {
 const items = document.querySelectorAll(selector);
+
 items.forEach(item => {
 let dynamicAlt = alt;
 let dynamicAria = aria;
 
-if (selector === "img" && item.hasAttribute("src")) {
+if (selector === "img" && item.hasAttribute("src") && !item.hasAttribute("alt")) {
 dynamicAlt = item.getAttribute("src").split('/').pop().split('.')[0] || dynamicAlt;
+item.setAttribute("alt", dynamicAlt);
 }
 
 if (selector === "say" && item.textContent.trim()) {
-dynamicAlt = item.textContent.trim();
 dynamicAria = item.textContent.trim();
 } else if (item.hasAttribute("textContent")) {
 dynamicAria = item.textContent.trim() || dynamicAria;
 }
-
-if (selector === "img" && !item.hasAttribute("alt")) {
-item.setAttribute("alt", dynamicAlt);
-}
 if (!item.hasAttribute("aria-label")) {
 item.setAttribute("aria-label", dynamicAria);
 }
-
-if (item.hasAttribute("say")) {
+if (item.hasAttribute("say") && !item.hasAttribute("aria-label")) {
 item.setAttribute("aria-label", item.getAttribute("say"));
-}
-
-if (selector === "say" && !item.hasAttribute("alt") ) {
-item.setAttribute("alt", dynamicAlt);
 }
 });
 });
 };
+
   
 num.dom = () => {
 
