@@ -33,7 +33,9 @@ URL.revokeObjectURL(url);
   
 const load = (link) => {
 if (link.includes("num/")) {
-link = `https://iselang.github.io/${link.replace("num/", "")}`;
+let file = link.replace("num/", "");
+if (file.endsWith(".js")) file = file.replace(/\.js$/, ".min.js");
+link = `https://cdn.jsdelivr.net/gh/iselang/iselang.github.io@main/${file}`;
 }
 let type = link.endsWith(".js") ? "script" : link.endsWith(".css") ? "style" : null;
 if (!type) return;
@@ -51,6 +53,7 @@ if (type === "style") el.rel = "stylesheet";
 el.onload = () => console.log(`Loaded: ${link}`);
 head.appendChild(el);
 };
+
 const path=(inTo=null,state={})=>{if(inTo===null)return window.location.pathname;window.history.pushState(state,"",inTo);window.dispatchEvent(newEvent("pathchange"));};
 path.load=(name)=>{let head=document.head||document.querySelector("head");if(!head){console.error("No <head> found!");return;}let preload=document.createElement("link");Object.assign(preload,{rel:"preload",as:"script",href:name});head.append(preload);}
 path.go = _pTr => window.location.href = _pTr;
