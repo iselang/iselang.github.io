@@ -168,6 +168,21 @@ grid-template-columns: repeat(4, 1fr); gap: 2.5px;
 }
 }
 
+card img{
+ width:100%;
+ object-fit:cover
+}
+
+card img:first-child{
+ height:80px
+}
+
+card img:last-child:not(:first-child){
+ height:60px;
+ margin-top:auto
+}
+
+
 `,
 item: `
 
@@ -206,6 +221,16 @@ text-align: left;
 font-size:20px;
 }
 
+say[small] {
+height: auto;
+min-height: auto;
+max-height: none;
+overflow: auto;
+resize: none;
+justify-content: left;
+text-align: left;
+font-size:16px;
+}
 
 say[mid] {
 height: auto;
