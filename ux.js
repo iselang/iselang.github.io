@@ -148,7 +148,7 @@ gap: 2.5px;
 
 card {
 width: 100%;
-height: 190px;
+height: 200px;
 display: flex;
 align-items: center;
 justify-content: center;
