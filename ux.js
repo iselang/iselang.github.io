@@ -148,6 +148,8 @@ gap: 2.5px;
 
 card {
 width: 100%;
+min-height: 200px;
+max-height: 200px;
 height: 200px;
 display: flex;
 align-items: center;
@@ -170,16 +172,16 @@ grid-template-columns: repeat(4, 1fr); gap: 2.5px;
 
 card img{
  width:100%;
- object-fit:cover
+ object-fit:cover;
 }
 
 card img:first-child{
- height:80px
+ height:80px;
 }
 
 card img:last-child:not(:first-child){
  height:60px;
- margin-top:auto
+ margin-top:auto;
 }
 
 
