@@ -24,7 +24,7 @@ text-align: left;
 }
 ask:empty::before {
 content: attr(say);
-color: var(--b2);
+color: #ebe9ff74 !important;
 }
 `,
 nav: `
