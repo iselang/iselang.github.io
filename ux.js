@@ -221,6 +221,7 @@ resize: none;
 justify-content: left;
 text-align: left;
 font-size:20px;
+border-radius: 0 !important;
 }
 
 say[small] {
