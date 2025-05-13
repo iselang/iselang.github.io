@@ -69,7 +69,7 @@ text-decoration: none; text-rendering: optimizeLegibility; text-transform: none;
 
 color: var(--m);
 border-radius: var(--bdr);font-weight:400; 
-font-size: 19px;  letter-spacing:-1.24px;  
+font-size: 14px;  letter-spacing:-0.5px;  
 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 background-color: unset;border: 0;} 
 :root, html, body {  background-color: transparent; border-radius:0px; margin: 0px;}
@@ -84,6 +84,12 @@ box-sizing:border-box;
 text-align:center;
 background-color:var(--b);
 }
+[bold]{font-weight:bold;}
+[ital],[itali],[italic]{font-style:italic;}
+[expand],[expan],[expanded]{font-stretch:expanded;}
+[cond],[conde],[condensed]{font-stretch:condensed;}
+[cap],[capi],[capitalize]{text-transform:capitalize;}
+[low],[lowe],[lower]{text-transform:lowercase;}
 
 [m] {color: var(--m);} svg[m] {fill: var(--m);} [mbg], h1 a {background-color: var(--m);} [mol] {outline: var(--m) solid 1.5px;} [msh] {box-shadow: var(--sh) var(--m);}
 
