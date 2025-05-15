@@ -1,7 +1,13 @@
 
 (function(){
 const AutoUI=()=>{
-let s = new Set(["ask", "nav", "task", "preview", "slide", "cont", "card", "item", "row", "say", "tap", "slide", "tab"]);
+let s = new Set([
+ "ask", "nav", "task", 
+ "preview", "slide",
+ "cont", "card", "layout",
+ "item", "row", "say", 
+ "tap", "slide", "tab"
+]);
 
 const cssContent = {
 ask: `
@@ -99,6 +105,79 @@ scroll-snap-align: center;
 
 
 `,
+
+ layout: `
+ @media screen {
+layout {
+height: 100vh;margin: 0;overflow: hidden;
+display: flex;flex-direction: column; 
+top:0;left:0;right:0;bottom:0;flex-wrap: wrap;
+}
+
+layout section {
+display:contents;
+justify-content: center;
+min-width: 0%;
+min-height: 0vh; 
+flex-wrap: wrap;
+width: 100%;
+}
+layout box:not(box[scroll]) {
+display: block;
+flex-wrap: wrap;
+padding: 0.3em;
+place-content: center;
+place-items: center;
+
+flex-grow: 1; 
+
+border: 0;
+width: auto;
+height: auto;
+min-width: 0.5in;
+min-height: 0.5in;  
+gap: 2px;
+}
+
+layout span {
+flex-grow: 1;
+flex-wrap: wrap;
+display: flex;
+flex-direction: row;
+
+}
+
+layout box[small], tap[box] {
+flex-wrap: wrap;
+flex-grow: 1; 
+border: 0;
+max-width: 1in;
+}
+
+layout box[scroll]{
+flex-wrap: wrap;
+display: block;
+padding: 0.1em;
+flex-grow: 1; 
+place-content: left;
+border: 0;
+width: auto;
+height: auto;
+min-width: 0.5in;
+min-height: 0.5in;  
+overflow-y: scroll;
+
+}
+
+layout [scroll] {
+overflow-y: scroll;
+}
+
+layout box[scroll] *{
+margin: 0.5em;
+}
+}
+ `
 
 slide: `
 
@@ -321,6 +400,9 @@ let all=document.querySelectorAll(["[bend]","[bendl]","[bendr]","[bendt]","[bend
 all.forEach(el=>{
 let st=el.style;
 el.hasAttribute("kind")&&(st.display=el.getAttribute("kind"));
+el.hasAttribute("hei") && ([st.minHeight, st.height, st.maxHeight] = el.getAttribute("hei").split(" "));
+el.hasAttribute("wid") && ([st.minWidth, st.width, st.maxWidth] = el.getAttribute("wid").split(" "));
+
 el.hasAttribute("gap")&&(st.gap=el.getAttribute("gap")+"px");
 el.hasAttribute("bend")&&(st.borderRadius=el.getAttribute("bend")+"px");
 el.hasAttribute("bendl")&&(st.borderTopLeftRadius=st.borderBottomLeftRadius=el.getAttribute("bendl")+"px");
