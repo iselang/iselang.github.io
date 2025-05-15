@@ -177,7 +177,7 @@ layout box[scroll] *{
 margin: 0.5em;
 }
 }
- `
+ `,
 
 slide: `
 
