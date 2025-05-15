@@ -400,8 +400,8 @@ let all=document.querySelectorAll(["[bend]","[bendl]","[bendr]","[bendt]","[bend
 all.forEach(el=>{
 let st=el.style;
 el.hasAttribute("kind")&&(st.display=el.getAttribute("kind"));
-el.hasAttribute("hei") && ([st.minHeight, st.height, st.maxHeight] = el.getAttribute("hei").split(" "));
-el.hasAttribute("wid") && ([st.minWidth, st.width, st.maxWidth] = el.getAttribute("wid").split(" "));
+el.hasAttribute("hei") && ([st.minHeight, st.height, st.maxHeight] = el.getAttribute("hei").split(" ")+"px");
+el.hasAttribute("wid") && ([st.minWidth, st.width, st.maxWidth] = el.getAttribute("wid").split(" ")+"px");
 
 el.hasAttribute("gap")&&(st.gap=el.getAttribute("gap")+"px");
 el.hasAttribute("bend")&&(st.borderRadius=el.getAttribute("bend")+"px");
