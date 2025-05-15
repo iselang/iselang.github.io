@@ -2,11 +2,11 @@
 (function(){
 const AutoUI=()=>{
 let s = new Set([
- "ask", "nav", "task", 
- "preview", "slide",
- "cont", "card", "layout",
- "item", "row", "say", 
- "tap", "slide", "tab"
+"ask", "nav", "task", 
+"preview", "slide",
+"cont", "card", "layout",
+"item", "row", "say", 
+"tap", "slide", "tab"
 ]);
 
 const cssContent = {
@@ -106,8 +106,8 @@ scroll-snap-align: center;
 
 `,
 
- layout: `
- @media screen {
+layout: `
+@media screen {
 layout {
 height: 100vh;margin: 0;overflow: hidden;
 display: flex;flex-direction: column; 
@@ -177,7 +177,7 @@ layout box[scroll] *{
 margin: 0.5em;
 }
 }
- `,
+`,
 
 slide: `
 
@@ -250,17 +250,17 @@ grid-template-columns: repeat(4, 1fr); gap: 2.5px;
 }
 
 card img{
- width:100%;
- object-fit:cover;
+width:100%;
+object-fit:cover;
 }
 
 card img:first-child{
- height:80px;
+height:80px;
 }
 
 card img:last-child:not(:first-child){
- height:60px;
- margin-top:auto;
+height:60px;
+margin-top:auto;
 }
 
 
@@ -400,8 +400,26 @@ let all=document.querySelectorAll(["[bend]","[bendl]","[bendr]","[bendt]","[bend
 all.forEach(el=>{
 let st=el.style;
 el.hasAttribute("kind")&&(st.display=el.getAttribute("kind"));
-el.hasAttribute("hei") && ([st.minHeight, st.height, st.maxHeight] = el.getAttribute("hei").split(" ")+"px");
-el.hasAttribute("wid") && ([st.minWidth, st.width, st.maxWidth] = el.getAttribute("wid").split(" ")+"px");
+if (el.hasAttribute("hei")) {
+let vals = el.getAttribute("hei").split(" ");
+if (vals.length === 1) {
+st.maxHeight = vals[0] + "px";
+} else if (vals.length === 2) {
+st.minHeight = vals[0] + "px";
+st.maxHeight = vals[1] + "px";
+}
+}
+
+if (el.hasAttribute("wid")) {
+let vals = el.getAttribute("wid").split(" ");
+if (vals.length === 1) {
+st.maxWidth = vals[0] + "px";
+} else if (vals.length === 2) {
+st.minWidth = vals[0] + "px";
+st.maxWidth = vals[1] + "px";
+}
+}
+
 
 el.hasAttribute("gap")&&(st.gap=el.getAttribute("gap")+"px");
 el.hasAttribute("bend")&&(st.borderRadius=el.getAttribute("bend")+"px");
