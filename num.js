@@ -32,15 +32,27 @@ URL.revokeObjectURL(url);
 };
 
 const load=lin=>{
-if(lin.includes("num/")||lin.includes("num@")){
-let fil=lin.replace(/num[@\/]/,"");
+let isNum=lin.includes("num@");
+let isNew=lin.includes("new@")||lin.includes("latest@");
+let isJs=lin.includes("js#");
+let isUi=lin.includes("ui#");
+let fil=lin.replace(/(num@|new@|latest@|js#|ui#)/g,"");
+if(isJs&&!fil.endsWith(".js")) fil+= ".js";
+if(isUi&&!fil.endsWith(".css")) fil+= ".css";
+if(isNum){
 fil=fil.endsWith(".js")?fil.replace(/\.js$/,".min.js"):fil.endsWith(".css")?fil.replace(/\.css$/,".min.css"):fil;
 lin=`https://cdn.jsdelivr.net/gh/iselang/iselang.github.io@main/${fil}`;
-}
-else if(lin.includes("latest@")||lin.includes("latest/")){
-let fil=lin.replace(/latest[@\/]/,"");
+}else if(isNew||isUi||isJs){
+lin=`https://iselang.github.io/${fil}`;
+}else if(lin.includes("num/")){
+fil=lin.replace("num/","");
+fil=fil.endsWith(".js")?fil.replace(/\.js$/,".min.js"):fil.endsWith(".css")?fil.replace(/\.css$/,".min.css"):fil;
+lin=`https://cdn.jsdelivr.net/gh/iselang/iselang.github.io@main/${fil}`;
+}else if(lin.includes("latest/")||lin.includes("new/")){
+fil=lin.replace(/(latest\/|new\/)/,"");
 lin=`https://iselang.github.io/${fil}`;
 }
+
 let typ=lin.endsWith(".js")?"script":lin.endsWith(".css")?"style":null;
 if(!typ)return;
 let hea=document.head;
