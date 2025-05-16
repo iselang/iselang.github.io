@@ -122,7 +122,7 @@ min-height: 0vh;
 flex-wrap: wrap;
 width: 100%;
 }
-layout *:not(*[scroll]) {
+layout box:not(box[scroll]) {
 display: block;
 flex-wrap: wrap;
 padding: 0.3em;
@@ -147,14 +147,14 @@ flex-direction: row;
 
 }
 
-layout box[small], tap[box][small]{
+layout box[small], tap[box] {
 flex-wrap: wrap;
 flex-grow: 1; 
 border: 0;
 max-width: 1in;
 }
 
-layout *[scroll]{
+layout box[scroll]{
 flex-wrap: wrap;
 display: block;
 padding: 0.1em;
@@ -169,11 +169,11 @@ overflow-y: scroll;
 
 }
 
-layout *[scroll] {
+layout [scroll] {
 overflow-y: scroll;
 }
 
-layout *[scroll] *{
+layout box[scroll] *{
 margin: 0.5em;
 }
 }
