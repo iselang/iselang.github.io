@@ -32,10 +32,14 @@ URL.revokeObjectURL(url);
 };
 
 const load=lin=>{
-if(lin.includes("num/")){
-let fil=lin.replace("num/","");
+if(lin.includes("num/")||lin.includes("num@")){
+let fil=lin.replace(/num[@\/]/,"");
 fil=fil.endsWith(".js")?fil.replace(/\.js$/,".min.js"):fil.endsWith(".css")?fil.replace(/\.css$/,".min.css"):fil;
 lin=`https://cdn.jsdelivr.net/gh/iselang/iselang.github.io@main/${fil}`;
+}
+else if(lin.includes("latest@")||lin.includes("latest/")){
+let fil=lin.replace(/latest[@\/]/,"");
+lin=`https://iselang.github.io/${fil}`;
 }
 let typ=lin.endsWith(".js")?"script":lin.endsWith(".css")?"style":null;
 if(!typ)return;
