@@ -452,7 +452,7 @@ const tg = el.tagName.toLowerCase();
 !el.inputAdded && (['ask','textarea','input'].includes(tg)) && 
 (el.addEventListener('input', () => eval(js)), el.inputAdded = true);
 
-!el.mousedownAdded && (['a','tap','card','cont','list','button','say'].includes(tg)) && 
+!el.mousedownAdded && (['a','box','tap','card','cont','list','button','say'].includes(tg)) && 
 (el.addEventListener('mousedown', () => eval(js)), el.mousedownAdded = true);
 
 });
