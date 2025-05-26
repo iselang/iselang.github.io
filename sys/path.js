@@ -7,7 +7,11 @@ intL06598 = ['\x69','\x6e','\x6e','\x65','\x72','\x48','\x54','\x4d','\x4c'];
 ihdid75037dpsh = (fwui, gsgo) => { 
 fwui[intL06598.join('')] = gsgo; 
 };
-suPelJR=['tap','section','ask','nav','part','row','say','bon','see','i'];
+suPelJR=['tap','section','ask','nav','part','row','say','see','i',"ask", "nav", "task", 
+"preview", "slide",
+"cont", "card", "layout",
+"item", "row", "say", 
+ "slide", "tab"];
 path.open = (name, trg) => {
 let target = trg ? pick(trg) : pick('path');
 if (!target) return;
