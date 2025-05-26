@@ -38,7 +38,7 @@ target.replaceChildren();
 ihdid75037dpsh(target, snHtm.body[intL06598.join('')]);
 
 setTimeout(() => {
-sen.apply();
+AutoUI();
 func();
 target.style.transition = "opacity 0.5s"; 
 target.style.opacity = 1; 
