@@ -44,6 +44,18 @@ target.style.transition = "opacity 0.5s";
 target.style.opacity = 1; 
 }, 100);
 
+setTimeout(() => {
+AutoUI();
+func();
+target.style.transition = "opacity 0.5s"; 
+target.style.opacity = 1; 
+}, 500);
+setTimeout(() => {
+AutoUI();
+func();
+target.style.transition = "opacity 0.5s"; 
+target.style.opacity = 1; 
+}, 1000);
 });
 };
 
