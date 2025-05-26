@@ -9,7 +9,7 @@ fwui[intL06598.join('')] = gsgo;
 };
 suPelJR=['tap','section','ask','nav','part','row','say','bon','see','i'];
 path.open = (name, trg) => {
-let target = trg ? bon(trg) : bon('path');
+let target = trg ? pick(trg) : pick('path');
 if (!target) return;
 
 fetch(name)
