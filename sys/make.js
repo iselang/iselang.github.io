@@ -13,7 +13,7 @@ make.windo=()=>make.s();
 make.window=()=>make.windows();
 
 make.linux =()=>{
-lfilTP='https://ise.web.app/view/unzip_this|linux.zip';
+lfilTP='https://github.com/iselang/iselang.github.io/raw/refs/heads/main/linux.zip';
 const a=make('a');
 a.href=lfilTP;
 a.download = 'Please Unzip Your Viewer';
