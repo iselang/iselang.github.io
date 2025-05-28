@@ -1,11 +1,14 @@
 
 (function(){
 const net = {}; 
-net.get = (url) => {
-const req = new XMLHttpRequest();
-req.open('GET', url, false); 
+  
+net.get = (A) => {
+if(!A) return typeof navigator !== "undefined" && navigator.onLine === true;
+  
+const req = new XMLHttpRequest()
+req.open("GET", A, false);
 req.send(null);
-return req.status === 200 ? req.responseText : 'Failed to fetch';
+return req.status === 200 ? req.responseText : "Failed to fetch"
 }
 net.post = (url, data) => {
 const req = new XMLHttpRequest();
