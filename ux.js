@@ -1,6 +1,5 @@
 
 (function(){
-(function(){
 const AutoUI=()=>{
 let s=new Set([
 "ask","nav","task",
@@ -74,8 +73,8 @@ scroll input[type=range]::-moz-range-thumb{height:18px;width:64px;background:#ff
 `
 };
 
-const make=s=>document.createElement(s)
-const pick=s=>document.querySelector(s)
+const make=s=>document.createElement(s);
+const pick=s=>document.querySelector(s);
 
 const somescroll=()=>{  
 document.querySelectorAll('scroll').forEach(x=>{  
@@ -161,9 +160,9 @@ el.hasAttribute("right")&&(st.textAlign="right",st.justifyContent="right",st.pla
 })
 };
 s.forEach(u=>a(u));
-att();
-somescroll();
-})()
+att();somescroll();
+
 AutoUI();
 AutoUI&&(window.AutoUI=AutoUI);
-})();
+}
+})()
