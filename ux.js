@@ -200,7 +200,7 @@ slides{scrollbar-width:none}
 
 slide{
 flex-shrink:0;
-width:95%;
+width:100%;
 height:100%;
 background:var(--b2);
 display:flex;
