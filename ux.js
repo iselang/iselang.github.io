@@ -413,21 +413,22 @@ console.error(`CSS content for ${tyDUI} not found.`);
 }
 };
 
-  
 const _smScoldoy89=()=>{
 document.querySelectorAll('scroll').forEach(cgh3x3bjk=>{
-if(cgh3x3bjk.querySelector('input[type=range]'))return 
-const rGHIK=document.createElement('input');rGHIK.type='range';
-rGHIK.setAttribute('aria-hidden','true');
+if(cgh3x3bjk.querySelector('input[type=range]'))return;
+const rGHIK=document.createElement('input');rGHIK.type='range'
+rGHIK.setAttribute('role','slider');
+rGHIK.setAttribute('aria-label','carousel slider');
+rGHIK.setAttribute('aria-valuemin','0');
+rGHIK.setAttribute('aria-valuemax','0');rGHIK.setAttribute('aria-valuenow','0');
 rGHIK.min=0;rGHIK.value=0;cgh3x3bjk.appendChild(rGHIK);
 const sohif=cgh3x3bjk.previousElementSibling;
-
-if(!sohif)return
-var u5r978feb=()=>rGHIK.max=sohif.scrollWidth-sohif.clientWidth
-rGHIK.oninput=()=>sohif.scrollLeft=rGHIK.value
-sohif.onscroll=()=>rGHIK.value=sohif.scrollLeft
-window.addEventListener('load',u5r978feb)
-window.addEventListener('resize',u5r978feb)
+if(!sohif)return;
+var u5r978feb=()=>{rGHIK.max=sohif.scrollWidth-sohif.clientWidth;rGHIK.setAttribute('aria-valuemax',rGHIK.max)};
+rGHIK.oninput=()=>{sohif.scrollLeft=rGHIK.value;rGHIK.setAttribute('aria-valuenow',rGHIK.value)};
+sohif.onscroll=()=>{rGHIK.value=sohif.scrollLeft;rGHIK.setAttribute('aria-valuenow',rGHIK.value)};
+window.addEventListener('load',u5r978feb);
+window.addEventListener('resize',u5r978feb);
 })
 }
 
