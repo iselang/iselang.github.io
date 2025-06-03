@@ -187,11 +187,12 @@ scroll-snap-type:x mandatory;
 scroll-padding:0;
 padding:0;
 place-self:center;
-width:96%;
-height:80svh;
+width:100%;
+height:88svh;
 scroll-behavior:smooth;
 gap:1rem;
 position:relative;
+border-radius:0;
 }
 
 slides::-webkit-scrollbar{display:none}
@@ -199,7 +200,7 @@ slides{scrollbar-width:none}
 
 slide{
 flex-shrink:0;
-width:90%;
+width:95%;
 height:100%;
 background:var(--b2);
 display:flex;
