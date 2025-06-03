@@ -418,6 +418,7 @@ const _smScoldoy89=()=>{
 document.querySelectorAll('scroll').forEach(cgh3x3bjk=>{
 if(cgh3x3bjk.querySelector('input[type=range]'))return 
 const rGHIK=document.createElement('input');rGHIK.type='range';
+rGHIK.setAttribute('aria-hidden','true');
 rGHIK.min=0;rGHIK.value=0;cgh3x3bjk.appendChild(rGHIK);
 const sohif=cgh3x3bjk.previousElementSibling;
 
