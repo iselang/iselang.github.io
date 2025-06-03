@@ -80,18 +80,12 @@ const somescroll=()=>{
 document.querySelectorAll('scroll').forEach(x=>{  
 if(x.querySelector('input[type=range]'))return  
 let r=document.createElement('input')  
-r.type='range'  
-r.min=0  
-r.value=0  
-x.appendChild(r)  
-
+r.type='range';r.min=0;r.value=0;x.append(r); 
 let s=x.previousElementSibling  
 if(!s)return  
-
 let u=()=>r.max=s.scrollWidth-s.clientWidth  
 let v=()=>s.scrollLeft=r.value  
 let w=()=>r.value=s.scrollLeft  
-
 r.oninput=()=>v()  
 s.onscroll=()=>w()  
 window.addEventListener('load',u)  
