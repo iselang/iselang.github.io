@@ -414,23 +414,80 @@ console.error(`CSS content for ${tyDUI} not found.`);
 };
 
 const _smScoldoy89=()=>{
-document.querySelectorAll('scroll').forEach(cgh3x3bjk=>{
-if(cgh3x3bjk.querySelector('input[type=range]'))return;
-const rGHIK=document.createElement('input');rGHIK.type='range'
-rGHIK.setAttribute('role','slider');
-rGHIK.setAttribute('aria-label','carousel slider');
-rGHIK.setAttribute('aria-valuemin','0');
-rGHIK.setAttribute('aria-valuemax','0');rGHIK.setAttribute('aria-valuenow','0');
-rGHIK.min=0;rGHIK.value=0;cgh3x3bjk.appendChild(rGHIK);
-const sohif=cgh3x3bjk.previousElementSibling;
-if(!sohif)return;
-var u5r978feb=()=>{rGHIK.max=sohif.scrollWidth-sohif.clientWidth;rGHIK.setAttribute('aria-valuemax',rGHIK.max)};
-rGHIK.oninput=()=>{sohif.scrollLeft=rGHIK.value;rGHIK.setAttribute('aria-valuenow',rGHIK.value)};
-sohif.onscroll=()=>{rGHIK.value=sohif.scrollLeft;rGHIK.setAttribute('aria-valuenow',rGHIK.value)};
-window.addEventListener('load',u5r978feb);
-window.addEventListener('resize',u5r978feb);
-})
+document.querySelectorAll('scroll').forEach(cnt=>{
+if(cnt.querySelector('input[type=range]'))return;
+const sld=document.createElement('input');
+sld.type='range';
+sld.setAttribute('role','slider');
+sld.setAttribute('aria-label','carousel slider');
+sld.setAttribute('aria-valuemin','0');
+sld.setAttribute('aria-valuemax','0');
+sld.setAttribute('aria-valuenow','0');
+sld.min=0;
+sld.value=0;
+sld.step='1';
+cnt.appendChild(sld);
+const scr=cnt.previousElementSibling;
+if(!scr)return;
+const upd=()=>{
+const mx=scr.scrollWidth-scr.clientWidth;
+sld.max=mx;
+sld.setAttribute('aria-valuemax',mx);
+};
+let drg=false;
+let tmo=null;
+let skp=false;
+sld.addEventListener('pointerdown',()=>{
+drg=true;
+skp=true;
+if(tmo){
+clearTimeout(tmo);
+tmo=null;
 }
+});
+sld.addEventListener('pointerup',()=>{
+drg=false;
+tmo=setTimeout(()=>{
+skp=false;
+tmo=null;
+},350);
+});
+sld.addEventListener('touchstart',()=>{
+drg=true;
+skp=true;
+if(tmo){
+clearTimeout(tmo);
+tmo=null;
+}
+});
+sld.addEventListener('touchend',()=>{
+drg=false;
+tmo=setTimeout(()=>{
+skp=false;
+tmo=null;
+},350);
+});
+sld.addEventListener('input',()=>{
+const val=Math.round(Number(sld.value));
+scr.scrollTo({left:val,behavior:'smooth'});
+sld.setAttribute('aria-valuenow',val.toString());
+});
+scr.addEventListener('scroll',()=>{
+if(drg||skp)return;
+const val=Math.round(scr.scrollLeft);
+sld.style.transition='all 200ms ease';
+sld.value=val.toString();
+sld.setAttribute('aria-valuenow',val.toString());
+setTimeout(()=>{
+sld.style.transition='none';
+},200);
+});
+sld.style.transition='none';
+new ResizeObserver(upd).observe(scr);
+window.addEventListener('load',upd);
+window.addEventListener('resize',upd);
+});
+};
 
 let att=()=>{
 let all=document.querySelectorAll(["[bend]","[bendl]","[bendr]","[bendt]","[bendb]","[bendtl]","[bendtr]","[bendbl]","[bendbr]","[gap]","[pad]","[kind]","[padl]","[padr]","[padt]","[padb]","[space]","[spacel]","[spacer]","[spacet]","[spaceb]","[center]","[left]","[right]"]);
