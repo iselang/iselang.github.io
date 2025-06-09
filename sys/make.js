@@ -134,6 +134,27 @@ make.andr=()=>make.android();
 make.andro=()=>make.android();
 make.androi=()=>make.android();
 
+make.pwa=()=>{
+const title = document.title || "My App";
+const iconLink = document.querySelector('link[rel="icon"], link[rel="shortcut icon"]');
+const icon = iconLink ? iconLink.href : "";
+const manifest = {
+name: title,
+short_name: title.length > 12 ? title.slice(0, 12) + "…" : title,
+start_url: ".",
+display: "standalone",
+icons: icon ? [{ src: icon, sizes: "any", type: "image/png" }] : []
+};
+const manifestJSON = JSON.stringify(manifest, null, 2);
+console.log(manifestJSON);
+const blob = new Blob([manifestJSON], { type: "application/json" });
+const url = URL.createObjectURL(blob);
+const a = document.createElement("a");
+a.href = url;
+a.download = "manifest.json";
+a.click();
+URL.revokeObjectURL(url);
+}
 
 make?(window.make=make):'';
 })();
