@@ -127,6 +127,8 @@ pick().put=at2;
 
 func();
 AutoUI();
+   
+setTimeout(()=>{AutoUI()}, 500);
 }
 make.an=()=>make.android();
 make.and=()=>make.android();
