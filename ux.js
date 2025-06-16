@@ -517,7 +517,7 @@ st.maxWidth = vals[1] + "px";
 }
 }
 
-el.hasAttribute("flex")&&(st.maxWidth='unset !important';
+el.hasAttribute("flex")&&(st.maxWidth='unset !important');
 el.hasAttribute("gap")&&(st.gap=el.getAttribute("gap")+"px");
 el.hasAttribute("bend")&&(st.borderRadius=el.getAttribute("bend")+"px");
 el.hasAttribute("bendl")&&(st.borderTopLeftRadius=st.borderBottomLeftRadius=el.getAttribute("bendl")+"px");
