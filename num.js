@@ -30,45 +30,47 @@ a.download = filename;
 a.click();
 URL.revokeObjectURL(url);
 };
+const load = lin => {
+let isNum = /(^|[\W])num([\W]|$)/.test(lin);
+let isNew = /(^|[\W])(new|latest)([\W]|$)/.test(lin);
+let isJs  = /(^|[\W])js([\W]|$)/.test(lin) || lin.endsWith(".js");
+let isUi  = /(^|[\W])ui([\W]|$)/.test(lin) || lin.endsWith(".css");
 
-const load=lin=>{
-let isNum=lin.includes("num@");
-let isNew=lin.includes("new@")||lin.includes("latest@");
-let isJs=lin.includes("js#");
-let isUi=lin.includes("ui#");
-let fil=lin.replace(/(num@|new@|latest@|js#|ui#)/g,"");
-if(isJs&&!fil.endsWith(".js")) fil+= ".js";
-if(isUi&&!fil.endsWith(".css")) fil+= ".css";
-if(isNum){
-fil=fil.endsWith(".js")?fil.replace(/\.js$/,".min.js"):fil.endsWith(".css")?fil.replace(/\.css$/,".min.css"):fil;
-lin=`https://cdn.jsdelivr.net/gh/iselang/iselang.github.io@main/${fil}`;
-}else if(isNew||isUi||isJs){
-lin=`https://iselang.github.io/${fil}`;
-}else if(lin.includes("num/")){
-fil=lin.replace("num/","");
-fil=fil.endsWith(".js")?fil.replace(/\.js$/,".min.js"):fil.endsWith(".css")?fil.replace(/\.css$/,".min.css"):fil;
-lin=`https://cdn.jsdelivr.net/gh/iselang/iselang.github.io@main/${fil}`;
-}else if(lin.includes("latest/")||lin.includes("new/")){
-fil=lin.replace(/(latest\/|new\/)/,"");
-lin=`https://iselang.github.io/${fil}`;
-}
+let fil = lin
+.replace(/(num|new|latest|ui|js)[@#/]/g, '')
+.replace(/^(@|#|\/*)+/, '');
 
-let typ=lin.endsWith(".js")?"script":lin.endsWith(".css")?"style":null;
-if(!typ)return;
-let hea=document.head;
-["preload"].forEach(rel=>{
-let pre=make("link");
-pre.rel=rel;
-pre.as=typ;
-pre.href=lin;
-hea.append(pre);
-});
-let el=make(typ==="script"?"script":"link");
-el[typ==="script"?"src":"href"]=lin;
-typ==="style"?(el.rel="stylesheet"):0;
-el.onload=()=>console.log(`Loaded: ${lin}`);
-hea.appendChild(el);
-}
+fil = (isJs && !fil.endsWith(".js"))   ? fil + ".js"  :
+(isUi && !fil.endsWith(".css"))  ? fil + ".css" :
+fil;
+
+lin = isNum ? `https://cdn.jsdelivr.net/gh/iselang/iselang.github.io@main/${fil}` :
+isNew ? `https://iselang.github.io/${fil}` :
+fil;
+
+let typ = lin.endsWith(".js") ? "script" :
+lin.endsWith(".css") ? "style" :
+null;
+
+typ ? 0 : '';
+
+let hea = document.head;
+["preload"].forEach(rel =>
+hea.append(Object.assign(make("link"), {
+rel,
+as: typ,
+href: lin
+}))
+);
+
+let el = make(typ === "script" ? "script" : "link");
+typ === "script" ? el.src = lin : el.href = lin;
+typ === "style" ? el.rel = "stylesheet" : 0;
+
+el.onload = () => console.log(`Loaded: ${lin}`);
+hea.append(el);
+};
+
   
 const path=(inTo=null,state={})=>{if(inTo===null)return window.location.pathname;window.history.pushState(state,"",inTo);window.dispatchEvent(newEvent("pathchange"));};
 path.load=(name)=>{let head=document.head||document.querySelector("head");if(!head){console.error("No <head> found!");return;}let preload=document.createElement("link");Object.assign(preload,{rel:"preload",as:"script",href:name});head.append(preload);}
