@@ -293,7 +293,10 @@ flex-direction: row;
 }
 row * {
 flex: 1;
-}
+width: unset !important;
+max-width: unset !important;
+text-align: center !important;
+} 
 
 `,
 say: `
