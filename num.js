@@ -80,7 +80,7 @@ let _sftx = ['\x69', '\x6e', '\x6e', '\x65', '\x72', '\x54', '\x65', '\x78', '\x
 let _sftv=['\x76','\x61','\x6c','\x75','\x65'].join('');
 const prot=Element.prototype;const hyper=HTMLElement.prototype;
 let define=(name,descriptor,type)=>Object.defineProperty(type||prot,name,descriptor);
-let setContent = h => { if (typeof h == "string") { if (this[_sftv] !== undefined || /INPUT|TEXTAREA/.test(this.tagName)) { this[_sftv] = h; } else { this[[/[<>]/.test(h) ? _sfht : _sftx]] = h; } } else if (h?.op && h?.val) { if (h.op === "+=") { this[_sftv] !== undefined ? this[_sftv] += h.val : this[_sftx] += h.val; } else if (h.op === "-=") { this[_sftv] !== undefined ? this[_sftv] = this[_sftv].replace(h.val, "") : this[_sftx] = this[_sftx].replace(h.val, ""); } } if (this[_sftv]) { this[_sftv] = this[_sftv].replace(/undefined/g, ""); } if (this[_sftx]) { this[_sftx] = this[_sftx].replace(/undefined/g, ""); } };
+let setContent=function(h){if(typeof h==="string"){if(this[_sftv]!==undefined||this.tagName==="INPUT"||this.tagName==="TEXTAREA"){this[_sftv]=h;}else if(/[<>]/.test(h.replace('undefined',''))){this[_sfht]=h.replace('undefined','');}else{this[_sftx]=h;}}else if(h?.op&&h?.val){if(h.op==="+="){this[_sftv]!==undefined?(this[_sftv]+=h.val):(this[_sftx]+=h.val);}else if(h.op==="-="){this[_sftv]!==undefined?(this[_sftv]=this[_sftv].replace(h.val,'')):(this[_sftx]=this[_sftx].replace(h.val,''));}}};
 define("get",{get:function(){return this[_sftv]??this[_sftx]??this[_sfht]??"";}});
 define("set",{set:setContent});
 
